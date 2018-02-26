@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENTITY -->
+<!-- ELEMENTS -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="master">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="intervenants"/>
+        <xs:element ref="enseignements"/>
+        <xs:element ref="parcours"/>
+        <xs:element ref="semestres"/>
+        <xs:element ref="blocks"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nom"/>
+        <xs:element ref="identifiant"/>
+        <xs:element ref="nombreCredit"/>
+        <xs:element minOccurs="0" ref="professeurs"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="resume"/>
+        <xs:element minOccurs="0" ref="plan"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref-intervenant"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="lieu"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="intervenant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nom"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="mail"/>
+        <xs:element minOccurs="0" ref="siteWeb"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="intervenants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="intervenant"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="enseignements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="unite"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="parcours">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="parcour"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="parcour">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="responsable"/>
+        <xs:element ref="nom"/>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element maxOccurs="unbounded" ref="ref-semestre"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="debouches"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="semestres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="semestre"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="semestre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="titre"/>
+        <xs:element maxOccurs="unbounded" ref="ref-block"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="blocks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="block"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="block">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ref-unite"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+      <xs:attribute name="etat" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Obligatoire"/>
+            <xs:enumeration value="Optionnel"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="professeurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ref-intervenant"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="responsable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ref-intervenant"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nom" type="xs:string"/>
+  <xs:element name="plan" type="xs:string"/>
+  <xs:element name="resume">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- Les crédits sont des entiers positifs -->
+  <xs:element name="nombreCredit" type="xs:positiveInteger"/>
+  <xs:element name="identifiant" type="xs:string"/>
+  <xs:element name="mail" type="xs:string"/>
+  <xs:element name="siteWeb" type="xs:string"/>
+  <xs:element name="ref-intervenant">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ref-unite">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lieu" type="xs:string"/>
+  <xs:element name="debouches">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ref-semestre">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ref-block">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="titre" type="xs:string"/>
+  <!-- ATTRIBUTS -->
+  <!-- HTML BALISE -->
+  <xs:element name="p">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="em"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="table"/>
+        <xs:element ref="p"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="strong">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="em" type="xs:string"/>
+  <xs:element name="ul">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element maxOccurs="unbounded" ref="li"/>
+        <xs:element ref="p"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="li">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="p"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="table"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="table">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="tr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="th"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="th" type="xs:string"/>
+</xs:schema>

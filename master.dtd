@@ -1,0 +1,66 @@
+<!--ENTITY-->
+<!ENTITY  site1  "Campus Luminy" 		        >
+<!ENTITY  site2  "Université d'Aix-Marseille"	>
+<!ENTITY  site3  "St Charles" 			        >
+<!ENTITY  site4  "St Jerome" 			        >
+<!ENTITY  adresseSitePerso      ".perso.luminy.univ-amu.fr/" >
+<!ENTITY  http					"http://www."				 >
+<!ENTITY  dom.amu				"univ-amu.fr"				 >
+<!ENTITY  dom.lif				"lif.univ-mrs.fr"			 >
+<!ENTITY  dom.luminy  			"univ-mrs.fr" 				 >
+<!ENTITY  dom.dil     			"dil.&dom.luminy;" 			 >
+<!ENTITY  obli     				"Obligatoire" 			     >
+<!ENTITY  option     				"Optionnel" 			     >
+<!ENTITY  cred3     			"3" 			     		 >
+<!ENTITY  cred6     			"6" 			     		 >
+
+<!--ELEMENTS-->
+<!ELEMENT master					(intervenants,enseignements,parcours,semestres,blocks)>
+<!ELEMENT unite    			(nom,identifiant,nombreCredit,professeurs?,resume*,plan?,ref-intervenant*,lieu*)>
+<!ELEMENT intervenant				(nom,mail*,siteWeb?)>
+<!ELEMENT intervenants        		(intervenant)*>
+<!ELEMENT enseignements        		(unite)*>
+<!ELEMENT parcours 					(parcour*)>
+<!ELEMENT parcour (responsable?,nom,description?,ref-semestre+,debouches*)>
+<!ELEMENT semestres					(semestre*)>
+<!ELEMENT semestre					(titre,ref-block+)>	
+<!ELEMENT blocks 					(block+)>
+<!ELEMENT block 					(ref-unite+)>
+<!ELEMENT professeurs        		(ref-intervenant+)>
+<!ELEMENT responsable        		(ref-intervenant+)>
+<!ELEMENT nom 						    (#PCDATA)>
+<!ELEMENT plan 						    (#PCDATA)>
+<!ELEMENT resume 					    (#PCDATA | p)*>
+<!ELEMENT nombreCredit 					(#PCDATA)>
+<!ELEMENT identifiant 					(#PCDATA)>
+<!ELEMENT mail 						    (#PCDATA)>
+<!ELEMENT siteWeb 					    (#PCDATA)>
+<!ELEMENT ref-intervenant    			(#PCDATA)>
+<!ELEMENT ref-unite   			(#PCDATA)>
+<!ELEMENT lieu        				(#PCDATA)>
+<!ELEMENT debouches					    (#PCDATA | p )*>
+<!ELEMENT description 					(#PCDATA | p)*>
+<!ELEMENT ref-semestre   				(#PCDATA)>
+<!ELEMENT ref-block						(#PCDATA)>
+<!ELEMENT titre        					(#PCDATA)*>
+<!--ATTRIBUTS-->
+<!ATTLIST unite  id ID  #REQUIRED>
+<!ATTLIST intervenant  id ID  #REQUIRED>
+<!ATTLIST block  id  ID  #REQUIRED>
+<!ATTLIST semestre  id  ID  #REQUIRED>
+<!ATTLIST parcour  id  ID  #REQUIRED>
+<!ATTLIST ref-intervenant  ref IDREF  #REQUIRED>
+<!ATTLIST ref-semestre  ref IDREF  #REQUIRED>
+<!ATTLIST ref-unite  ref IDREF  #REQUIRED>
+<!ATTLIST ref-block  ref IDREF  #REQUIRED>
+<!ATTLIST block  etat  (Obligatoire|Optionnel)  #REQUIRED>
+
+<!--HTML BALISE -->
+<!ELEMENT p							(#PCDATA| em | ul | strong | table | p)*  >				
+<!ELEMENT strong					(#PCDATA|p)*>				
+<!ELEMENT em						(#PCDATA)>
+<!ELEMENT ul						(li+ | p)*>
+<!ELEMENT li						(#PCDATA|p|ul|table)*>
+<!ELEMENT table						(tr+)>
+<!ELEMENT tr						(th+|td+)>
+<!ELEMENT th						(#PCDATA)>
