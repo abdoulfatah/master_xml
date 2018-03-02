@@ -1,122 +1,1868 @@
-body {
-	background-color: #eeeeec;
-}
+<?xml version="1.0" encoding="utf-8" ?>
 
-p {
-	font-family: verdana;
-	font-size: 20px;
-}
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-.header {
-	padding: 20px;
-	border: 3px blue outset;
-}
+	<!-- NOEUD MASTER -->
+	<xsl:template match="master">
 
-.header h1 {
-	color: #16a9fc;
-	text-align: center;
-	font-size: 25px;
-}
+		<!-- Description des unités d'enseignement -->
+		<xsl:document href="unites.html">
+			<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+			<html xmlns="http://www.w3.org/1999/xhtml">
+				<head>
+					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+					<link rel="stylesheet" type="text/css" href="css/master.css" />
+					<title>
+						UEs
+					</title>
+				</head>
+				<body>
+					<div class="header">
+						<img alt="logo" src="css/img/logo.png"></img>
+						<h1>Master Informatique Aix Marseille Université</h1>
+					</div>
+					<div class="navigation">
+						<xsl:call-template name="menu">
+							<!-- Nous sommes a la racine -->
+							<xsl:with-param name="link" />
+						</xsl:call-template>
+					</div>
+					<center>
+						<h1>Liste des UEs du master</h1>
+					</center>
+					<div class="body">
+						<div class="titre">
+							<p>Les UEs du master</p>
+						</div>
+						<div class="contenu">
+							<table>
+								<tr>
+									<td>Code</td>
+									<td>Nom</td>
+								</tr>
+								<xsl:for-each select="//unite">
+									<tr>
+										<td>
+											<a href="enseignements/{@id}.html">
+												<xsl:value-of select="@id" />
+											</a>
+										</td>
+										<td>
+											<xsl:value-of select="nom" />
+										</td>
+									</tr>
+								</xsl:for-each>
+							</table>
 
-.header img {
-	float: left;
-	padding-left: 20px;
-	padding-right: 20px;
-	vertical-align: middle;
-}
+						</div>
+					</div>
+				</body>
+			</html>
+		</xsl:document>
 
-.body {
-	width: 60%;
-	margin-left: 25%;
-	margin-right: 25%;
-	margin-top: 5%;
-	padding: 50px;
-	float: center;
-	background: #d2ecea;
-}
+		<!-- Description des intervenants -->
+		<xsl:document href="intervenants.html">
+			<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+			<html xmlns="http://www.w3.org/1999/xhtml">
+				<head>
+					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+					<link rel="stylesheet" type="text/css" href="css/master.css" />
+					<title> Intervenants					</title>
+				</head>
+				<body>
+					<div class="header">
+						<img alt="logo" src="css/img/logo.png"></img>
+						<h1>Master Informatique Aix Marseille Université</h1>
+					</div>
+					<div class="navigation">
+						<xsl:call-template name="menu">
+							<xsl:with-param name="link" />
+						</xsl:call-template>
+					</div>
+					<center>
+						<h1>Liste des intervenants de chaque UEs du master</h1>
+					</center>
+					<div class="body">
+						<div class="titre">
+							<p>Les intervenants de chaque UEs du master </p>
+						</div>
+						<div class="contenu">
 
-.titre {
-	height: 25px;
-	background: #204a70;
-	text-align: center;
-	padding: 11px;
-	border-color: #ffffff;
-	position: relative;
-}
+							<table>
+								<tr>
+									<td>Nom</td>
+									<td>Courriel</td>
+									<td>Lieu d'Enseignement</td>
+								</tr>
+								<xsl:for-each select="//intervenant">
+									<tr>
+										<td>
+											<a href="intervenants/{@id}.html">
+												<xsl:value-of select="nom" />
+											</a>
+										</td>
+										<td>
+											<xsl:value-of select="mail" />
+										</td>
+										<td>
+											<xsl:value-of select="lieu" />
+										</td>
+									</tr>
+								</xsl:for-each>
+							</table>
+						</div>
+					</div>
+				</body>
+			</html>
+		</xsl:document>
 
-.contenu {
-	background: #87BFB7;
-	padding: 11px;
-}
+		<!-- Generation une page XHTML par UE -->
+		<xsl:for-each select="//unite">
+			<xsl:document href="enseignements/{@id}.html">
+				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+				<html xmlns="http://www.w3.org/1999/xhtml">
+					<head>
+						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+						<link rel="stylesheet" type="text/css" href="../css/master.css" />
+						<title>
+							<xsl:value-of select="nom" />
+						</title>
+					</head>
+					<body>
+						<div class="header">
+							<img alt="logo" src="../css/img/logo.png"></img>
+							<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
+						</div>
+						<div class="contenu">
+							<ul>
+								<li>
+									Identifiant :
+									<xsl:value-of select="identifiant" />
+								</li>
+								<li>
+									Nombre de credits :
+									<xsl:value-of select="nombreCredit" />
+								</li>
+								<li>
+									Resume :
+									<xsl:value-of select="resume" />
+								</li>
+								<li>
+									Liste de(s) intervenant(s) :
+									<ul>
+										<li>
+											<xsl:apply-templates select="professeurs/ref-intervenant  " />
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<br />
+						<center>
+							<a href="../index.html" onclick="javascript:history.back();">Revenir a la liste</a>
+						</center>
+					</body>
+				</html>
+			</xsl:document>
+		</xsl:for-each>
 
-.body p {
-	font-size: 18px;
-}
+		<!-- Production une page XHTML par intervenant -->
+		<xsl:for-each select="//intervenant">
+			<xsl:document href="intervenants/{@id}.html">
+				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+				<html xmlns="http://www.w3.org/1999/xhtml">
+					<head>
+						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+						<link rel="stylesheet" type="text/css" href="../css/master.css" />
+						<title>
+							<xsl:value-of select="nom" />
+						</title>
+					</head>
+					<body>
+						<div class="header">
+							<img alt="logo" src="../css/img/logo.png"></img>
+							<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
+						</div>
+						<div class="contenu">
+							<ul>
+								<li>
+									Nom de l'intervenant :
+									<xsl:value-of select="nom" />
+								</li>
+								<li>
+									Mail de l'intervenant :
+									<xsl:value-of select="mail" />
+								</li>
+							</ul>
+						</div>
+						<br />
+						<center>
+							<a href="../index.html" onclick="javascript:history.back();">Revenir a la liste</a>
+						</center>
+					</body>
+				</html>
+			</xsl:document>
+		</xsl:for-each>
 
-tr, td {
-	padding: 8px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
-}
+		<!-- Génération d'une page XHTML par parcour -->
+		<xsl:for-each select="//parcour">
+			<xsl:document href="parcours/{@id}.html">
+				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+				<html xmlns="http://www.w3.org/1999/xhtml">
+					<head>
+						<link rel="stylesheet" type="text/css" href="../css/master.css" />
+						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+						<title>
+							<xsl:value-of select="nom" />
+						</title>
+					</head>
+					<body>
+						<div class="header">
+							<img alt="logo" src="../css/img/logo.png"></img>
+							<h1>Master Informatique Aix Marseille Université</h1>
+						</div>
+						<div class="navigation">
+							<xsl:call-template name="menu">
+								<xsl:with-param name="link">
+									../
+								</xsl:with-param>
+							</xsl:call-template>
+						</div>
+						<div class="body">
+							<div class="titre">
+								<xsl:value-of select="nom" />
+							</div>
+							<div class="contenu">
+								Responsables :
+								<xsl:apply-templates select="responsable/ref-intervenant" />
+								<p>
+									<xsl:value-of select="description" />
+								</p>
 
-tr:hover {
-	background-color: #f5f5f5
-}
+								<xsl:apply-templates select="ref-semestre" />
+								<div class="titre"> Programme des enseignements : </div>
+								<div class="contenu">
+									<xsl:for-each select="ref-semestre">
+										<xsl:variable name="id" select="@ref" />
+										<xsl:call-template name="genererSemestre">
+											<xsl:with-param name="id">
+												<xsl:value-of select="$id" />
+											</xsl:with-param>
+										</xsl:call-template>
+									</xsl:for-each>
+								</div>
+								<div class="titre"> Debouches : </div>
+								<p>
+									<xsl:value-of select="debouches" />
+								</p>
+								<br />
+							</div>
+						</div>
+					</body>
+				</html>
+			</xsl:document>
+		</xsl:for-each>
+		<!-- Squelette de l' index HTML -->
+		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+		<html>
+			<head>
+				<link rel="stylesheet" type="text/css" href="css/master.css" />
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<title>Master Luminy</title>
+			</head>
+			<body>
+				<div class="header">
+					<img src="css/img/logo.png" alt="logo"></img>
+					<h1>Master Informatique Aix Marseille Université</h1>
+				</div>
+				<div class="navigation">
+					<xsl:call-template name="menu">
+						<xsl:with-param name="link"></xsl:with-param>
+					</xsl:call-template>
+				</div>
+				<div class="body">
+					<p>
+						Le master « informatique » a pour vocation la formation de
+						professionnels de l'informatique au niveau bac+5. L'objectif est
+						d'offrir aux etudiants une large palette de competences et de
+						savoirs
+						afin de rendre accessible des emplois de haut niveau dans
+						le monde de
+						la recherche, dans celui de l'entreprise ou dans
+						d'autres
+						organisations. Notre ambition est de former des etudiants
+						dont les
+						competences sont tout a fait comparables a celles acquises
+						dans
+						les
+						meilleurs ecoles d'ingenieurs.
+					</p>
+					<p>
+						Le Master informatique repose sur plus de 25 ans d'experience
+						d'enseignement d'informatique sur l'Universite d'Aix-Marseille
+						(maitrise, DEA et DESS en informatique) et s'est structure lors du
+						passage au LMD. Si vous n'etes pas familier des formations
+						organisees
+						suivant le schema Licence/Master/Doctorat, nous vous
+						conseillons de
+						lire cette petite introduction.
+					</p>
+				</div>
+			</body>
+		</html>
+	</xsl:template>
+	<!-- FIN NOEUD MASTER -->
 
-tr:nth-child(even) {
-	background-color: #f2f2f2
-}
+	<!-- NOEUD ref-intervenant -->
+	<xsl:template match="ref-intervenant">
+		<xsl:variable name="ref" select="@ref" />
+		<xsl:for-each select="//intervenant">
+			<!-- Test condition sans XPTATH -->
+			<xsl:if test="$ref = @id">
+				<a href="../intervenants/{$ref}.html">
+					<xsl:value-of select="nom" />
+				</a>
+			</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+	<!-- FIN NOEUD ref-intervenant -->
 
-.navigation {
-	margin-top: 8%;
-	float: left;
-	width: 16%;
-	list-style: none;
-	margin-left: 5%;
-}
+	<!-- Generation du menu -->
+	<xsl:template name="menu">
+		<xsl:param name="link" />
+		<ul>
+			<li>
+				<strong>PARCOURS</strong>
+				<ul>
+					<xsl:for-each select="//parcour">
+						<li>
+							<a href="{$link}parcours/{@id}.html">
+								<strong>
+									<xsl:value-of select="nom" />
+								</strong>
+							</a>
+						</li>
+					</xsl:for-each>
+				</ul>
+			</li>
+			<li>
+				<a href="{$link}unites.html">
+					<strong>
+						Unites
+					</strong>
+				</a>
+			</li>
+			<li>
+				<a href="{$link}intervenants.html">
+					<strong>
+						Intervenants
+					</strong>
+				</a>
+			</li>
+		</ul>
+	</xsl:template>
+	<!-- FIN Génération du menu -->
+	<!-- Semestre -->
+	<xsl:template name="genererSemestre">
+		<xsl:param name="id" />
+		Programme du S
+		<xsl:value-of select="//semestre[@id = $id]/titre" />
+		<xsl:for-each select="//semestre[@id = $id]/ref-block">
+			<xsl:variable name="id" select="@ref" />
+			<li>
+				<xsl:value-of select="//block[$id = @id]/@titre" />
+			</li>
+			<xsl:for-each select="//block[$id = @id]">
+				<xsl:for-each select="ref-unite">
+					<xsl:variable name="idUE" select="@ref" />
+					<xsl:call-template name="afficherNomEnseignement">
+						<xsl:with-param name="id">
+							<xsl:value-of select="$idUE" />
+						</xsl:with-param>
+					</xsl:call-template>
+				</xsl:for-each>
+			</xsl:for-each>
+		</xsl:for-each>
+	</xsl:template>
+	<xsl:template name="afficherNomEnseignement">
+		<xsl:param name="id" />
+		<li>
+			<a href="../../enseignements/{$id}.html">
+				<xsl:value-of select="//unite[@id = $id]/nom" />
+				(
+				<xsl:value-of select="//unite[@id = $id]/nombreCredit" />
+				credits)
+			</a>
+		</li>
+	</xsl:template>
+</xsl:stylesheet>
 
-.navigation h1 {
-	color: black;
-	text-align: left;
-	font-size: 20px;
-}
 
-.navigation li {
 
-	background: #204a70;
-	color: #fff;
-	border-top: 1px solid #555753;
-	border-bottom: 1px solid #555753;
-	font-size: 15px;
-}
 
-.navigation li ul {
-	background: #204a70;
-	color: #cde1fc;
-	font: 1em "Trebuchet MS", Arial, sans-serif;
-	text-align: center;
-}
 
-.navigation ul li {
-	list-style-type: none;
-	font: 1em "Trebuchet MS", Arial, sans-serif;
-	text-align: center;
-	border-left: 1px;
-}
 
-.navigation li a {
-	display: block;
-	background: #cde1fc;
-	color: black;
-	font: 1em "Trebuchet MS", Arial, sans-serif;
-	line-height: 1em;
-	text-align: center;
-	text-decoration: none;
-	padding: 4px 0;
-}
 
-.navigation li a:hover, .navigation li a:focus, .navigation li a:active
-	{
-	background: #204a70;
-	text-decoration: none;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE master SYSTEM "master.dtd">
+<?xml-stylesheet type="text/xsl" href="XSL/master.xsl" ?>
+<master>
+	<intervenants>
+		<intervenant id="massat">
+			<nom>Jean-Luc MASSAT</nom>
+			<mail>jean-luc.massat@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="morin">
+			<nom>Remi MORIN</nom>
+			<mail>remi.morin@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="novelli">
+			<nom>Noel NOVELLI</nom>
+			<mail>noel.novelli@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="olive">
+			<nom>Frederic OLIVE</nom>
+			<mail>frederic.olive@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="rene">
+			<nom>Lydie RENE CHABAROT</nom>
+			<mail>lydie.rene@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="sabatier">
+			<nom>Claude SABATIER</nom>
+			<mail>claude.sabatier@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="godard">
+			<nom>Emmanuel GODARD</nom>
+			<mail>emmanuel.godard@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="creignou">
+			<nom>Nadia CREIGNOU</nom>
+			<mail>nadia.creignou@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="bechet">
+			<nom>Frederic BECHET</nom>
+			<mail>frederic.bechet@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="boucelma">
+			<nom>Omar BOUCELMA</nom>
+			<mail>omar.boucelma@&dom.lif;</mail>
+			<lieu>&site3;</lieu>
+		</intervenant>
+		<intervenant id="denis">
+			<nom>Francois DENIS</nom>
+			<mail>francois.denis@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="jamet">
+			<nom>Line JAMET</nom>
+			<mail>line.jakubiec@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="perrot">
+			<nom>Kevin PERROT</nom>
+			<mail>kevin.perrot@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="jegou">
+			<nom>Philippe JEGOU</nom>
+			<mail>philippe.jegou@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="niebert">
+			<nom>Peter NIEBERT</nom>
+			<mail>peter.niebert@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="santocanale">
+			<nom>luigi SANTOCANALE</nom>
+			<mail>luigi.santocanale@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="lugiez">
+			<nom>Denis LUGIEZ</nom>
+			<mail>denis.lugiez@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="contensin">
+			<nom>Magali CONTENSIN</nom>
+			<mail>magali.contensin@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="bertolissi">
+			<nom>clara BERTOLISSI</nom>
+			<mail>clara.bertolissi@&dom.amu;</mail>
+			<lieu>UFR Science</lieu>
+		</intervenant>
+	</intervenants>
+	<enseignements>
+		<unite id="ENSINAU1">
+			<nom>Genie Logiciel</nom>
+			<identifiant>ENSINAU1</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="perrot"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li> Processus logiciel </li>
+						<li> Gestion de projet </li>
+						<li> Specification et conception (artefact : notation UML) </li>
+						<li> Design patterns </li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU2">
+			<nom>Complexite</nom>
+			<identifiant>ENSINAU2</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="olive"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li>Rappels sur les notions d'analyse de la complexite des
+							algorithmes et des problemes.
+						</li>
+						<li>Notion de problemes (decision, recherche, denombrement,
+							enumeration, optimisation). Bornes inferieures de complexite.
+						</li>
+						<li>Classes P et NP. Problemes NP-complets.</li>
+						<li>Methodes de resolution des problemes NP-Complets.</li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU3">
+			<nom>Reseaux</nom>
+			<identifiant>ENSINAU3</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="godard"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li>Architecture en couches, standard OSI</li>
+						<li>Couche physique</li>
+						<li>Couche liaison de Donnees</li>
+						<li>Reseau IP</li>
+						<li>Algorithmes de routage, routage IP</li>
+						<li>Protocole TCP/IP</li>
+						<li>Couche Application : HTTP, SMTP, FTP, ...</li>
+						<li>Bases des protocoles cryptographiques (terminologie,
+							architecture a clef publique).
+						</li>
+						<li>Introduction a la Securite des reseaux.</li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU4">
+			<nom>Programmation fonctionnelle</nom>
+			<identifiant>ENSINAU4</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="santocanale"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li>
+							Introduction a la programmation fonctionnelle, sur l'exemple
+							du langage OCaml Expressions, evaluation, types de base.
+							Polymorphisme, ordre superieur. Fonctions recursives, filtrage.
+							Les diverses strategies d'evaluation, application a la
+							programmation d'un operateur de point fixe.
+						</li>
+						<li>
+							Les types Sommes, types recursifs, polymorphes. Arbres.
+							Filtrage.
+						</li>
+						<li>Semantique operationnelle Liaisons, environnements, clôtures.
+							evaluation des fonctions recursives .
+						</li>
+						<li>
+							Aspects imperatifs Exceptions, entrees-sorties, sequencement,
+							fichiers, references, tableaux, enregistrements.
+						</li>
+						<li>
+							Implantation du filtrage en OCaml Termes formels,
+							substitutions, filtrage.
+						</li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU12">
+			<nom>BDR : approfondissement</nom>
+			<identifiant>ENSINAU12</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="sabatier"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p> Base de données Rélationnelle </p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU6">
+			<nom>Programmation logique</nom>
+			<identifiant>ENSINAU6</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="jamet"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li>
+							Introduction. Forme generale des regles. Effacement,
+							unification, backtracking.
+						</li>
+						<li> Contrôle de l'execution. </li>
+						<li> Listes, arbres et n-uplets. </li>
+						<li> Liste representee par difference de listes. Ajout en tete et
+							en
+							queue, concatenation.
+						</li>
+						<li>
+							Analyseurs syntaxiques. Construction d'un arbre syntaxique.
+							Liste des feuilles d'un arbre. Freeze et analyse par feuille.
+						</li>
+						<li> Regles predefinies.</li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU7">
+			<nom>Outils de l'internet</nom>
+			<identifiant>ENSINAU7</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="contensin"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li> Presentation d'Internet. </li>
+						<li> Les langages et les normes sur Internet. </li>
+						<li> Les protocoles : HTTP, HTTP, SMTP, IMAP, POP3 </li>
+						<li> Les applications web Securite. </li>
+						<li> Les nouvelles et futures technologies. </li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU8">
+			<nom>Systeme embarque</nom>
+			<identifiant>ENSINAU8</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="niebert"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p> Fabrication des objets connectés </p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINAU9">
+			<nom>Fondamentaux pour l'ingenierie des langues</nom>
+			<identifiant>ENSINAU9</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="bechet"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li> Rappel de theorie des langages </li>
+						<li> Algorithmes d'analyse </li>
+						<li> syntaxique pour grammaires ambiguës </li>
+						<li> Transducteurs finis et leur application en TAL </li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINAU10">
+			<nom>Modeles a evenements discrets</nom>
+			<identifiant>ENSINAU10</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="boucelma"></ref-intervenant>
+			</professeurs>
+			<resume>
+				Posseder les notions de base en modelisation et analyse de
+				systemes
+				dynamiques a evenements discrets et particulierement
+				apprehender le
+				formalisme reseau de Petri. etudier la conception et
+				la specification
+				des systemes reactifs a travers l'analyse du modele a evenements
+				discrets
+				(concurrence, parallelisme, synchronisation).
+			</resume>
+		</unite>
+		<unite id="ENSINAU13">
+			<nom>Pratique de la cryptographie</nom>
+			<identifiant>ENSINAU13</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>Nous sommes désolé, mais nous n'avons pas encore de résumé.
+			</resume>
+		</unite>
+		<unite id="ENSINBU1">
+			<nom>ANGLAIS</nom>
+			<identifiant>ENSINBU1</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="jamet"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<ul>
+						<li>Apprendre l'anglais</li>
+					</ul>
+				</p>
+			</resume>
+
+		</unite>
+		<unite id="ENSINBU2">
+			<nom>COMMUNICATION</nom>
+			<identifiant>ENSINBU2</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="rene"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					<strong> chapitre 1 : </strong>
+					Theories de la communication : 1.1 La theorie
+					mathematique de
+					l’information (Shannon, Weaver), la cybernetique
+					(Wiener)
+				</p>
+				<p> 1.2 La theorie de Palo Alto ( Bateson, Watzlawick) et la theorie
+					de la communication par les processus (Mucchielli)
+				</p>
+				<p>
+					<strong> chapitre 2 : </strong>
+					Rôle de l’interculturalite dans le travail en equipe :
+					2.1 L’enquete interculturelle de Hofstede pour IBM
+					2.2 La gestuelle et le paralangage et la proxemie dans le monde (Hall)
+				</p>
+				<p>
+					<strong> chapitre 3 : </strong>
+					Notions de management et de travail collaboratif
+					3.1 Le travail collaboratif vs le travail cooperatif
+					3.2 La notion de groupes
+					3.3 Les competences manageriales
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINBU4">
+			<nom>XML</nom>
+			<identifiant>ENSINBU4</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="massat"></ref-intervenant>
+			</professeurs>
+			<resume> XML, DTD, XSD XPath, XSLT, XQuery . </resume>
+		</unite>
+		<unite id="ENSINBU5">
+			<nom>Algorithmique et recherche operationnelle</nom>
+			<identifiant>ENSINBU5</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="jamet"></ref-intervenant>
+			</professeurs>
+			<resume>Programmation lineaire. Notions et algorithmes de
+				flots.Applications (couplage, affectation, transport, ...)
+				Programmation dynamique (sac a dos, ordonnancement, ...)
+				Algorithmes
+				a performance garantie
+			</resume>
+		</unite>
+		<unite id="ENSINBU15">
+			<nom>Programmation parallele</nom>
+			<identifiant>ENSINBU15</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="morin"></ref-intervenant>
+			</professeurs>
+			<resume>la programmation parallèle  </resume>
+		</unite>
+		<unite id="ENSINBU6">
+			<nom>Projet</nom>
+			<identifiant>ENSINBU6</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="jegou"></ref-intervenant>
+			</professeurs>
+
+			<resume>
+				<p>
+					Le but du projet est de mettre en oeuvre, de l'analyse a la
+					programmation, les notions presentees en cours.
+					C'est l'occasion,
+					pour les etudiants, d'utiliser sur un cas
+					pratique, les elements exposees dans les UE. Travail effectue sous
+					la
+					direction pedagogique d'un enseignant, et donnant lieu a la
+					redaction d'un memoire et d'une soutenance orale.
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINBU7">
+			<nom>Stage de deux mois</nom>
+			<identifiant>ENSINBU7</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<resume>
+				<p>
+					Le but du projet est de mettre en oeuvre, de l'analyse a la
+					programmation, les notions presentees en cours. C'est l'occasion,
+					pour les etudiants, d'utiliser sur un cas pratique, les elements
+					exposees dans les UE. Travail effectue sous la direction
+					pedagogique d'un enseignant, et donnant lieu a la redaction d'un
+					memoire et d'une soutenance orale.
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINBU9">
+			<nom> Algorithmique distribuee  </nom>
+			<identifiant>ENSINCU16</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					Algorithmes de diffusion, diffusion avec retour. Algorithmes
+					d'election, detection de la terminaison. Tolerance aux pannes
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINBU10">
+			<nom>Integration des systemes d'information</nom>
+			<identifiant>ENSINBU10</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="jamet"></ref-intervenant>
+			</professeurs>
+
+			<resume>
+				Problematique d'integration des SI Architectures et patrons
+				d'integration Systemes d'Information d'entreprises Systemes
+				d'Information sur Internet
+			</resume>
+		</unite>
+		<unite id="ENSINBU11">
+			<nom>Initiation a la fouille de donnees et a l'optimisation des SGBD</nom>
+			<identifiant>ENSINBU11</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="novelli"></ref-intervenant>
+			</professeurs>
+			<resume>
+				<p>
+					Actuellement, de plus en plus de donnees sont conservees sans
+					etre reellement exploitees. Elles representent pourtant une source
+					importante d’information. La fouille de donnees peut-etre definie
+					comme le processus permettant d’extraire de l’information non
+					triviale et non prealablement connue a partir des donnees. Dans cet
+					enseignement, nous nous focaliserons sur l’extraction de
+					correlations entre les donnees (regle d’association, Dependances
+					Fonctionnelles...) et nous verrons des techniques de mesure de la
+					qualite des donnees (detection et correction d’erreur).
+				</p>
+				<p>
+					Par ailleurs, nous passerons du côte obscur des SGBD en mettant
+					evidence le lien existant entre les performances d'un SGBD et les
+					choix d'implementation des differents algorithmes utilises (gestion
+					de la concurrence, reprise sur panne, transaction...) ainsi que les
+					differentes implementations existantes des operations de base des
+					SGBD comme les jointures ou les tris accompagnes de leurs
+					conditions d'utilisation.
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINBU12">
+			<nom>Intelligence artificielle</nom>
+			<identifiant>ENSINBU12</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="jamet"></ref-intervenant>
+			</professeurs>
+			<resume>Introduction a l'IA Problemes d'espace d'etats et
+				d'exploration Logiques pour l'IA et demonstration automatique
+				Representation de connaissances Actions, temps et planification
+				Programmation par contraintes et reseaux de contraintes
+			</resume>
+		</unite>
+		<unite id="ENSINBU13">
+			<nom>Algorithme a performance garantie</nom>
+			<identifiant>ENSINBU13</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="jamet"></ref-intervenant>
+			</professeurs>
+
+			<resume>
+				<p>
+					Algorithmes d'approximation de nature combinatoire pour les
+					problemes NP-complets suivants : Voyageur de Commerce, arbre de
+					Steiner, ordonnancement de taches, clustering, p-centres, sac a
+					dos, bin packing, couverture d'ensemble, la plus courte
+					sur-sequence commune ; FPTAS et PTAS (ordonnancement de taches et
+					sac a dos) ; Algorithmes d'approximation par programmation lineaire
+					: l'arrondi et la methode primale-duale (MAXSAT, couverture
+					d'ensemble,
+					multicoupes et multiflots dans les arbres) ; Algorithmes
+					en ligne et
+					competitivite : la pagination et les k-serveurs.
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINBU16">
+			<nom>Introduction a l'apprentissage automatique</nom>
+			<identifiant>ENSINBU16</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="denis"></ref-intervenant>
+			</professeurs>
+			<resume>Deep Learning</resume>
+		</unite>
+		<unite id="ENSINCU27">
+			<nom>Anglais 2</nom>
+			<identifiant>ENSINCU45</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					Expression orale et ecrite : exposes sur des sujets scientifiques
+					et / ou professionnels, travaux ecrits. Preparation et passage du
+					TOEIC.
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINCU28">
+			<nom>Communication 2</nom>
+			<identifiant>ENSINCU28</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					<ul>
+						<li>
+							L’etudiant apprend a effectuer un bilan de son parcours de
+							formation, a elaborer un projet professionnel personnel, a cerner
+							ses motivations et a enrichir ses connaissances des metiers et du
+							marche de l’informatique pour se constituer un portefeuille de
+							competences.
+						</li>
+						<li> Valorisation du parcours de formation </li>
+						<li>
+							Clarification des motivations et de leurs incidences sur des
+							choix professionnels
+						</li>
+						<li> Identification des aptitudes et des competences, </li>
+						<li> Positionnement du projet personnel et professionnel </li>
+						<li> Ajustement des profils annonce / candidature </li>
+						<li> Preparation aux entretiens de recrutement </li>
+						<li> Redaction de curriculum vitae et de lettres de motivation
+						</li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU29">
+			<nom>Fiabilite logicielle 1</nom>
+			<identifiant>ENSINCU29</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					Introduction fiabilite vs securite Test boite blanche (graphe de
+					contrôle, de donnee, mesure de couverture, modele a base
+					d'automates, qualite logicielle) Test boite noire (specifications
+					formelle informelles, construction de suite de tests :
+					partitionnement, tests au limites, tests combinatoires, graphe de
+					causalite) Test et Simulation (Objets factices, inversion de
+					contrôle, integration) Validation Formelle (systeme de preuves :
+					Hoare, logique de separation, analyse statique)
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU30">
+			<nom>Plateforme JEE</nom>
+			<identifiant>ENSINCU30</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					L'objet du cours est de presenter le developpement d'applications
+					dans le cadre de la plateforme JEE ( Java Enterprise Edition ).
+					Nous
+					etudions notamment Acces aux ressources exterieures :
+
+					les
+					interfaces java d'acces aux bases de donnees relationnelles
+					(JDBC),
+					les interfaces d'acces aux annuaires d'entreprise (LDAP, JNDI)
+
+					Mise
+					en place d'une couche metier (middleware) :
+
+					les architectures
+					logicielles a base de composants (EJB, Spring,
+					Jboss, Glassfish) et
+					les principes de mise en œuvre (specification/implantation,
+					injection de dependances et inversion de contrôle),
+					l'architecture
+					des applications 3-tiers,
+					Couche de presentation et interfaces Web :
+					les technologies de mise en
+					œuvre des applications WEB (Servlet,
+					JSP, Tomcat, Glassfish).
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU31">
+			<nom>Systemes heterogenes</nom>
+			<identifiant>ENSINCU31</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					Les parties magistrales de l'enseignement seront l'occasion
+					d'aborder notamment les aspects suivants :
+					Introduction aux metiers
+					et organisation des Systemes d'Information (DSI, AMO,
+					MOE,
+					architectes, exploitants...) Introduction aux strategies
+					d'entreprises autour de leurs systemes d'information (plan de
+					continuite d'activite, plan de reprise d'activite, plan de
+					continuite informatique...) Introduction a la conception et a
+					l'evolution de systemes d'information (recueil et analyse de
+					l'existant, des besoins et contraintes, scenarii, redaction de
+					cahier des charges...) Decouvertes des technologies liees a la
+					disponibilite et haute disponibilite des donnees informatiques
+					(reseaux de stockage - SAN, NAS -, virtualisation...) Decouverte
+					des
+					architectures de disponibilite et haute disponibilite des SI
+					(analyse des besoins, conception, cloud computing...)
+					Approfondissement des savoirs autour des reseaux de transferts de
+					donnees d'entreprises (routage, reseaux prives virtuels...)
+					Decouverte des infrastructures de services des reseaux de donnees
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU67">
+			<nom>Projet d'entreprise</nom>
+			<identifiant>ENSINCU67</identifiant>
+			<nombreCredit>3</nombreCredit>
+			<resume>
+				<p>
+					L'objet de cet enseignement est de presenter un projet de
+					creation et de developpementd'entreprise. Le but est de donner une
+					vision horizontale des differents aspects a examiner pour se
+					lancer
+					dans une creation d'entreprise, sans la completude verticale
+					donnee
+					par exemple par un cours de type« ecole de commerce sur
+					l'aspect
+					marche. Une vision de Business Plan pourra ainsi etre
+					acquise a la
+					finde cet enseignement.
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU32">
+			<nom>Securite internet et reseau</nom>
+			<identifiant>ENSINCU32</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					Le cours aborde la securite de l'information sous deux aspects :
+					Un volet organisationnel qui aborde la mise en place d'un systeme
+					de management de la securite informatique a travers notamment
+					l'etude des normes (ISO 27001, ISO 27002 ...) ou l'utilisation
+					pratique de methodes d'evaluation des besoins et des objectifs de
+					securite
+					Un volet technique oriente sur l'acquisition des mecanismes
+					cryptographiques actuels (algorithmes, protocoles ...) avec une
+					mise en œuvre pratique (tunnels securises, infrastructure de
+					distribution de certificats...) ainsi que l'utilisation des outils
+					de securite reseaux (journalisation, conformite …) en complement
+					d'une sensibilisation pratique aux types d'attaque reellement
+					existantes.
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU33">
+			<nom>Fiabilite logicielle 2</nom>
+			<identifiant>ENSINCU33</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					La premiere partie du cours se divise en deux sections : la
+					securite dans le langage Java et la securite dans les applications
+					web. Pour la premiere section, dans Java la securite revet de
+					nombreux aspects : les specifications du langage disposent de
+					fonctionnalites pour renforcer la securite du code, aussi bien lors
+					de la phase de compilation que lors de la phase d'execution
+					la
+					plate-forme definit un modele pour gerer les droits d'une
+					application (applications locales ou applications telechargees sur
+					le reseau) l'API JCE permet d'utiliser des technologies de
+					cryptographie (cryptage/decryptage de donnees, generation de cles)
+					l'API JAAS propose un service pour gerer l'authentification et les
+					autorisations d'un utilisateur Au niveau de la securite dans les
+					applications web, on aborde differents notions liees a la securite,
+					comme l'authentification, le contrôle d'acces, les vulnerabilites
+					d'un systeme (ou risque d'attaques). On s'appuie notamment sur
+					l'organisme Open Web Application Security Project (OWASP) qui
+					etabli
+					un classement des problemes des securite les plus critiques
+					pour les
+					applications web. Des solutions possibles sont analysees en
+					cours,
+					ainsi que de bonnes pratiques de developpement pour limiter
+					de
+					telles failles de securite. Un exemple de verification formelle
+					automatique (basee sur des techniques de model checking ») sur le
+					protocole de securite Single-Sign-On est presente. La deuxieme
+					partie
+					du cours s'articule autour des Criteres Communs de
+					Securite
+					(CCS)
+					qui ont pour objectif d'evaluer la securite des
+					systemes
+					informatiques. Les CCS mettent en place un standard de
+					certification
+					internationale et offrent un ensemble de
+					recommandations precises
+					pour analyser, developper, valider,
+					maintenir et utiliser des
+					systemes informatiques. En ce sens, ils
+					proposent une methode de
+					support pour les developpeurs, les
+					evaluateurs et les utilisateurs
+					finaux. Ils servent de base pour
+					evaluer et determiner le degre de
+					confiance que l'on peut attribuer
+					a un systeme ou a une
+					application. En
+					particulier, ils decrivent 7
+					niveaux d'evaluation et
+					d'analyse de programmes.
+					Dans cette partie du
+					cours, chaque niveau est passe en revue, de facon
+					generale dans un
+					premier temps, puis a travers un
+					exemple de programme a verifier.
+					L'accent est surtout mis
+					sur les niveaux les
+					plus eleves, necessitant
+					une specification formelle ou
+					meme une verification formelle. Dans
+					le cours, l'objectif principal
+					est de montrer qu'un programme est
+					fiable par rapport aux
+					specifications initiales. Pour cela, le cours
+					presente : le systeme
+					de specification formelle Z (notation
+					mathematique basee
+					sur la theorie des ensembles et sur la logique du
+					premier ordre),
+					l'atelier de genie logiciel B (dont la notation Z
+					est a l'origine ;
+					les supports de Jean-Raymond Abrial sont utilises
+					dans un cours),
+					les differents systemes de types qui existent et en
+					particulier, un
+					systeme de type evolue au travers du systeme Coq
+					(base sur la
+					theorie du Calcul des Constructions qui est un
+					lambda-calcul type
+					d'ordre superieur).
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU34">
+			<nom>Qualite</nom>
+			<identifiant>ENSINCU34</identifiant>
+			<nombreCredit>&cred3;</nombreCredit>
+			<resume>
+				<p>
+					<ul>
+						<li>Chapitre 1 : Introduction : Referentiels et Gestion de Service
+							IT
+						</li>
+						<p>Concept de Service, La Gestion de Service et ITILv3, Processus,
+							Rôles et Fonctions, Deming, Cycle de vie des Services
+						</p>
+						<li>Chapitr 2 : Strategie des Services</li>
+						<p>Definition de la Strategie, Gestion du Portefeuille, Gestion de
+							la Demande, Gestion Financiere
+						</p>
+						<li>Chapitre 3 : Conception des Services</li>
+						<p>Concepts, Gestion du Catalogue, Gestion des Niveaux de Service,
+							Gestion de la Capacite, Gestion de la Disponibilite, Gestion de
+							la Continuite, Gestion de la Securite, Gestion des Fournisseurs
+						</p>
+						<li>Chapitre 4 : Transition des Services</li>
+						<p>Gestion des Actifs et des Configurations, Gestion des
+							Changements, Gestion des Deploiements et des Mises en Production,
+							Gestion de la Connaissance
+						</p>
+						<li>Chapitre 5 : Exploitation des Services</li>
+						<p>Les Fonctions, Gestion des Evenements, Gestion des Incidents,
+							Gestion des Requetes, gestion des Problemes, Gestion des Acces
+						</p>
+						<li>Chapitre 6 : Amelioration Continue des Services1</li>
+						<p>Processus d’amelioration en 7 etapes</p>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINCU35">
+			<nom>Securite des systemes embarques</nom>
+			<identifiant>ENSINCU35</identifiant>
+			<nombreCredit>3</nombreCredit>
+			<resume>
+				<p>
+					But de ce module est de familiariser les etudiants avec les
+					principes de la norme USB et de leur donner les moyens pour
+					developper des pilotes USB côte hôte et côte peripherique. La norme
+					USB etant vaste, on se concentrera sur deux classes particulieres,
+					les peripheriques HID (human interface devise) et les peripheriques
+					CCID (circuit card interface devices, c'est-a-dire des lecteurs de
+					cartes a puce sans et avec contact pour des applications de
+					securite).
+
+					<strong>Contenu du cours :</strong>
+					<ul>
+						<li>Introduction a USB : architecture materiel et logiciel,
+							classes de peripheriques, classes de transferts, nouveautes dans
+							USB 3.0
+						</li>
+						<li>Protocole de communication USB, detaille, schema de
+							transactions, terminaisons, types de transfert ; descripteurs et
+							enumerations
+						</li>
+						<li>Details de la classe classe HID : exemples simples (souris,
+							clavier) et exemples plus complexes et applications
+						</li>
+						<li>USB pratique cote peripherique : ce qu'il faut faire, comment
+							utiliser les bibliotheques USB, ce qu'il faut ajouter,
+							interruptions et threads.
+						</li>
+						<li>USB pratique cote hôte (Linux) : ce qu'il faut faire, comment
+							utiliser libusb, comment ecrire des pilotes comme extensions de
+							kernel, ...
+						</li>
+						<li>Introduction aux smart cards et a la classe CCID.</li>
+					</ul>
+				</p>
+			</resume>
+		</unite>
+
+		<unite id="ENSINDU3">
+			<nom>Projet industriel de mise en application</nom>
+			<identifiant>ENSINDU3</identifiant>
+			<nombreCredit>&cred6;</nombreCredit>
+			<resume>
+				<p>
+					Redaction du cahier des charges. Conception de l'application.
+					Developpement et test. Redaction d'un memoire et presentation.
+				</p>
+			</resume>
+		</unite>
+		<unite id="ENSINDU4">
+			<nom>Stage en entreprise</nom>
+			<identifiant>ENSINDU4</identifiant>
+			<nombreCredit>24</nombreCredit>
+			<resume>
+				<p>
+					Recherche d'un stage. Validation du sujet de stage. Suivi du bon
+					deroulement du stage. Aide a la redaction du memoire de stage.
+					Soutenance et evaluation du stage.
+				</p>
+			</resume>
+		</unite>
+	</enseignements>
+	<parcours>
+		<parcour id="m1">
+			<responsable>
+				<ref-intervenant ref="morin"></ref-intervenant>
+			</responsable>
+			<nom>Master Info 1</nom>
+			<description>L'objectif de cette première année est de donner les
+				bases indispensables permettant, en deuxième année, de choisir une
+				spécialisation dans un domaine précis. Sur les 60 crédits de cette
+				première année, 15 crédits correspondent à des enseignements
+				optionnels. Ces options permettent de construire un parcours adapté.
+				Un choix entre stage ou projet encadré est également proposé au
+				semestre de printemps.
+
+
+			</description>
+
+			<ref-semestre ref="M1_S1"></ref-semestre>
+			<ref-semestre ref="M1_S2"></ref-semestre>
+			<debouches> <p> Ce master permet l'accès à des postes de niveau ingénieur
+				en informatique. A titre d'exemple, voici
+				quelques débouchés possibles qui varient en fonction
+				de la spécialité choisie : 
+				<ul> 
+				<li> Administrateur de bases de données ou d'entrepôts
+				de données  </li>
+				<li> Administrateur ou architecte de systèmes d'information </li>
+				<li> Administrateur réseau/système </li> 
+				<li>  Architecte logiciel </li> 
+				<li>  Chef de projets </li> 
+				<li>  Chercheur et enseignant-chercheur </li> 
+				<li>  Consultant fonctionnel </li> 
+				<li>  Ingénieur d'études, de recherche et de développement </li> 
+				<li>  Ingénieur développeur d'applications Web </li> 
+				<li>  Ingénieur intégration </li> 
+				</ul>
+				</p>
+			</debouches>
+		</parcour>
+		<parcour id="m2_fsi">
+			<responsable>
+				<ref-intervenant ref="massat"></ref-intervenant>
+			</responsable>
+			<nom>Master 2 Informatique Fiabilité et sécurité informatique (FSI) </nom>
+			<description>
+				<p> La formation permet d’acquérir les principes et techniques liés
+					à la conception, l’implémentation, l’exploitation de systèmes et
+					applications informatiques sûrs dans un environnement ouvert et
+					hétérogène. Les métiers visés sont ceux du large champ de la
+					sécurité informatique (applications sécurisées, management de la
+					sécurité, administration d’infrastructures, normes et qualité,
+					audit de sécurité, R ET D).
+				</p>
+				<p>La formation apporte des compétences fortes en sécurité et
+					fiabilité des applications (web, mobiles, embarquées), en sécurité
+					organisationnelle, en sécurité des réseaux, en hacking éthique, en
+					protocoles et architectures cryptographiques, en méthodes
+					formelles. L’accent est mis sur le travail en équipe, sur des
+					projets concrets, bénéficiant de l’apport des professionnels
+					intervenant dans la formation.
+				</p>
+			</description>
+
+			<ref-semestre ref="M2_S3_FSI"></ref-semestre>
+			<ref-semestre ref="M2_S4_FSI"></ref-semestre>
+			<debouches>
+				<p>
+					<ul>
+						<li>Ingénieur R et D</li>
+						<li> Chef de projet</li>
+						<li> Ingénieur études et développement</li>
+						<li> Responsable de la sécurité des SI</li>
+						<li>Responsable qualité</li>
+						<li>Ingénieur test et validation</li>
+						<li>Ingénieur intégration</li>
+					</ul>
+				</p>
+			</debouches>
+		</parcour>
+	</parcours>
+	<semestres>
+		<semestre id="M1_S1">
+			<titre>1</titre>
+			<ref-bloc ref="M1_S1_OBLI"></ref-bloc>
+			<ref-bloc ref="M1_S1_OPTION"></ref-bloc>
+		</semestre>
+		<semestre id="M1_S2">
+			<titre>2</titre>
+			<ref-bloc ref="M1_S2_OBLI"></ref-bloc>
+			<ref-bloc ref="M1_S2_OPTION"></ref-bloc>
+		</semestre>
+		<semestre id="M2_S3_FSI">
+			<titre>3</titre>
+			<ref-bloc ref="M2_S3_FSI_OBLI"></ref-bloc>
+			<ref-bloc ref="M2_S3_FSI_BONUS"></ref-bloc>
+		</semestre>
+		<semestre id="M2_S4_FSI">
+			<titre>4</titre>
+			<ref-bloc ref="M2_S4_FSI_OBLI"></ref-bloc>
+		</semestre>
+	</semestres>
+	<blocs>
+		<bloc id="M1_S1_OBLI" etat="&obli;">
+			<ref-unite ref="ENSINAU1"></ref-unite>
+			<ref-unite ref="ENSINAU2"></ref-unite>
+			<ref-unite ref="ENSINAU3"></ref-unite>
+			<ref-unite ref="ENSINAU4"></ref-unite>
+			<ref-unite ref="ENSINAU12"></ref-unite>
+		</bloc>
+		<bloc id="M1_S1_OPTION" etat="&option;">
+			<ref-unite ref="ENSINAU6"></ref-unite>
+			<ref-unite ref="ENSINAU7"></ref-unite>
+			<ref-unite ref="ENSINAU8"></ref-unite>
+			<ref-unite ref="ENSINAU9"></ref-unite>
+			<ref-unite ref="ENSINAU10"></ref-unite>
+			<ref-unite ref="ENSINAU13"></ref-unite>
+		</bloc>
+		<bloc id="M1_S2_OBLI" etat="&obli;">
+			<ref-unite ref="ENSINBU1"></ref-unite>
+			<ref-unite ref="ENSINBU2"></ref-unite>
+			<ref-unite ref="ENSINBU4"></ref-unite>
+			<ref-unite ref="ENSINBU5"></ref-unite>
+			<ref-unite ref="ENSINBU15"></ref-unite>
+		</bloc>
+		<bloc id="M1_S2_OPTION" etat="&option;">
+			<ref-unite ref="ENSINBU6"></ref-unite>
+			<ref-unite ref="ENSINBU7"></ref-unite>
+			<ref-unite ref="ENSINBU9"></ref-unite>
+			<ref-unite ref="ENSINBU11"></ref-unite>
+			<ref-unite ref="ENSINBU12"></ref-unite>
+			<ref-unite ref="ENSINBU13"></ref-unite>
+			<ref-unite ref="ENSINBU16"></ref-unite>
+		</bloc>
+		<bloc id="M2_S3_FSI_OBLI" etat="&obli;">
+			<ref-unite ref="ENSINCU27"></ref-unite>
+			<ref-unite ref="ENSINCU28"></ref-unite>
+			<ref-unite ref="ENSINCU29"></ref-unite>
+			<ref-unite ref="ENSINCU30"></ref-unite>
+			<ref-unite ref="ENSINCU31"></ref-unite>
+			<ref-unite ref="ENSINCU32"></ref-unite>
+			<ref-unite ref="ENSINCU33"></ref-unite>
+			<ref-unite ref="ENSINCU34"></ref-unite>
+			<ref-unite ref="ENSINCU35"></ref-unite>
+		</bloc>
+		<bloc id="M2_S3_FSI_BONUS" etat="&option;">
+			<ref-unite ref="ENSINCU67"></ref-unite>
+		</bloc>
+		<bloc id="M2_S4_FSI_OBLI" etat="&obli;">
+			<ref-unite ref="ENSINDU3"></ref-unite>
+			<ref-unite ref="ENSINDU4"></ref-unite>
+		</bloc>
+	</blocs>
+</master>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENTITY -->
+<!-- ELEMENTS -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="master">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="intervenants"/>
+        <xs:element ref="enseignements"/>
+        <xs:element ref="parcours"/>
+        <xs:element ref="semestres"/>
+        <xs:element ref="blocs"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nom"/>
+        <xs:element ref="identifiant" />
+        <xs:element ref="nombreCredit"/>
+        <xs:element minOccurs="0" ref="professeurs"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="resume"/>
+        <xs:element minOccurs="0" ref="plan"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref-intervenant"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="lieu"/>
+           <!-- Deux adresses maximum -->
+        <xs:element minOccurs="0" maxOccurs="2" ref="adresse" />
+        <xs:element minOccurs="0" ref="autre" />
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="intervenant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nom"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="mail"/>
+        <xs:element minOccurs="0" ref="siteWeb"/>
+        <xs:element minOccurs="0" ref="adresse" />
+        <xs:element ref="lieu" />
+        <xs:element minOccurs="0" ref="autre" />
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="intervenants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="intervenant"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="enseignements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="unite"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="parcours">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="parcour"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="parcour">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="responsable"/>
+        <xs:element ref="nom"/>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element maxOccurs="unbounded" ref="ref-semestre"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="debouches"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="semestres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="semestre"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="semestre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="titre"/>
+        <xs:element maxOccurs="unbounded" ref="ref-bloc"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="blocs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="bloc"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bloc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ref-unite"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+      <xs:attribute name="etat" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Obligatoire"/>
+            <xs:enumeration value="Optionnel"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="professeurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ref-intervenant"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="responsable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ref-intervenant"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- Le nom doit être explicite et pas trop long -->
+  <xs:element name="nom">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:whiteSpace value='collapse' />
+        <xs:maxLength value='80' />
+        <xs:minLength value='2' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+ <xs:element name="plan" type="xs:normalizedString" />
+  <xs:element name="resume">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- Les crédits sont des entiers positifs -->
+  <xs:element name="nombreCredit" type="xs:positiveInteger"/>
+  <xs:element name="identifiant" type="xs:string"/>
+  <!--  comment valider un mail à partir d'un schema xml-->
+  <xs:element name="mail">
+    <xs:simpleType>
+      <xs:restriction base="xs:normalizedString">
+        <!--  On supprime les espaces-->
+        <xs:whiteSpace value="collapse" />
+        <xs:pattern
+          value="null|([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <!-- CHECK site web  -->
+  <xs:element name="siteWeb">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <!-- On supprime les espaces -->
+        <xs:whiteSpace value="collapse" />
+        <xs:pattern value="[hH][tT]{2}[pP]://[wW]{3}.*" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <!-- ajoutant une adresse -->
+  <xs:element name="adresse">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:whiteSpace value='collapse' />
+        <xs:maxLength value='100' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="ref-intervenant">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ref-unite">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lieu" type="xs:normalizedString"/>
+  <xs:element name="debouches">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ref-semestre">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ref-bloc">
+    <xs:complexType mixed="true">
+      <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- Le titre ne doit pas etre un string trop grand -->
+  <xs:element name="titre">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:whiteSpace value='collapse' />
+        <xs:maxLength value='15' />
+        <xs:minLength value='1' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <!--CHECK ID -->
+  <xs:simpleType name="ID">
+    <xs:restriction base="xs:normalizedString">
+      <!-- On supprime le blancs -->
+      <xs:whiteSpace value="collapse" />
+      <xs:pattern value="([0-9]*(_)*[A-Z]*)*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Permet d'ajouter aux UE et aux intervenants des informations non-prévues -->
+  <xs:element name="autre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="titre" />
+        <xs:element ref="p" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- ATTRIBUTS -->
+  <!-- HTML BALISE -->
+  <xs:element name="p">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="em"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="table"/>
+        <xs:element ref="p"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="strong">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="em" type="xs:normalizedString"/>
+  <xs:element name="ul">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element maxOccurs="unbounded" ref="li"/>
+        <xs:element ref="p"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="li">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="p"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="table"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="table">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="tr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="th"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="th" type="xs:string"/>
+</xs:schema>
+
+
+ <xs:complexType name="ref-intervenant">
+    <xs:sequence>
+      <xs:element ref="ref-intervenant"/>
+    </xs:sequence>
+  </xs:complexType>
+
+unzip ../../Téléchargements/trang-20030619.zip
+
+alias xml2xsd='java -jar trang-20030619/trang.jar'
+
+xml2xsd master.xml master.xsd
+
+
+
+xmllint --valid --noent master.xml > masterNoEnt.xml
+
+declare option saxon:output "indent=yes";
+
+<resultat>
+{
+    for
+        $nomIntervenant in doc("master.xml")//intervenant/nom
+	order by $nomIntervenant
+    return
+        <intervenant>
+            {$nomIntervenant}
+         {
+            for $idInter in fn:distinct-values($nomIntervenant/../identifiant)
+            order by $idInter, $nomIntervenant
+            return 
+                <id>
+                    {$idInter}
+						{	
+						for 
+							$matiere in doc("master.xml")//unite
+							let $idRef := $matiere/professeurs/ref-intervenant
+							where ($idInter = $idRef)	
+							order by $idRef
+							let $nomMat := $matiere/nom							
+						return
+							$nomMat
+						}
+
+                </id>
+         }
+
+          </intervenant>
+        
 }
+</resultat>
+
+
