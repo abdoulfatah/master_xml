@@ -395,9 +395,9 @@
 			<xsl:for-each select="semestre">
 				<li>
 					Semestre :
-					<xsl:value-of select="@idSemestre" />
+					<xsl:value-of select="@id" />
 				</li>
-				<xsl:for-each select="blocks/block">
+				<xsl:for-each select="blocs/bloc">
 					<h2>
 						<xsl:value-of select="@titre" />
 						<xsl:value-of select="@etat" />
@@ -501,12 +501,12 @@
 		<xsl:param name="id" />
 		Programme du S
 		<xsl:value-of select="//semestre[@id = $id]/titre" />
-		<xsl:for-each select="//semestre[@id = $id]/ref-block">
+		<xsl:for-each select="//semestre[@id = $id]/ref-bloc">
 			<xsl:variable name="id" select="@ref" />
 			<li>
-				<xsl:value-of select="//block[$id = @id]/@titre" />
+				<xsl:value-of select="//bloc[$id = @id]/@titre" />
 			</li>
-			<xsl:for-each select="//block[$id = @id]">
+			<xsl:for-each select="//bloc[$id = @id]">
 				<xsl:for-each select="ref-unite">
 					<xsl:variable name="idUE" select="@ref" />
 					<xsl:call-template name="afficherNomEnseignement">
