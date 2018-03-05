@@ -14,13 +14,13 @@ xsd:
 	@echo "-----[ XSD OK ]-----"
 web:
 	mkdir -p www
-	xsltproc -o www/index.html xsl/master.xsl master.xml
+	java -jar saxon9/saxon9he.jar -xsl:xsl/master.xsl master.xml -o:www/index.html
 	@echo "-----[ Génération site WEB OK ]-----"
 tidyXHTML:
 	cd tidy && make all
 	@echo "-----[ TIDY OK ]-----"
 xqReq:	
-	java -cp saxon9/saxon9he.jar net.sf.saxon.Query "-q:xq.txt" > www/xq.xhtml
+	java -cp saxon9/saxon9he.jar net.sf.saxon.Query "-q:xq.txt" > www/xq.html
 	@echo "-----[ XQ OK ]-----"
 javaNomUE:
 	cd java && make all

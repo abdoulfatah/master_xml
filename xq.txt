@@ -7,7 +7,7 @@ declare option saxon:output "indent=yes";
 
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> [7]
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
     <style type="text/css">
       body{{font-family: Verdana, Arial, Helvetica, sans-serif}}[8]
       table, th, td{{border: 1px solid gray; border-collapse:collapse}}
@@ -15,11 +15,11 @@ declare option saxon:output "indent=yes";
       .alt2{{background-color:azure}}
       .th{{background-color:silver}}
     </style>
-    <title>Liste des Enseignants</title>
+    <title>Liste des Intervenants</title>
   </head>
 	<body>
 	
-	<h1>Liste des Enseignants</h1>
+	<h1>Liste des Intervenants</h1>
 {
 (: On cherche tous les noms des intervenants :)  
     for
@@ -47,8 +47,28 @@ declare option saxon:output "indent=yes";
 											""
 								}
 				            </ul>
-				 			}
-						</li>
+				 		}
+				 		{
+								(: On cherche tous les identifiants des intervenants :)  
+				        for $idInter in fn:distinct-values($nomIntervenants/../identifiant)
+				        order by $idInter
+				        return 
+				            <ul>
+											Parcours intervenus:
+								{
+									(: On affiche les Parcours intervenus :)  
+									for $parcour in doc("master.xml")//specialite
+									let $idRef := string($parcour/professeurs/ref-intervenant[@ref = $idInter]/../../nom)
+									order by $idRef	
+									return
+										if (fn:compare($idInter,($parcour/professeurs/ref-intervenant[@ref = $idInter])) > 0) then
+												<li>{$idRef}</li>
+										else
+											""
+								}
+				            </ul>
+				 		}
+			</li>
           </ul>       
 }
 </body>

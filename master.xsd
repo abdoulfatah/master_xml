@@ -16,7 +16,7 @@
     <!-- INDEX SUR INTERVENANT -->
     <xs:keyref name="ref.intervenant.id" refer="intervenant.id">
       <xs:selector
-        xpath="specialites/specialite/responsable/ref-intervenant | enseignements/unite/professeurs/ref-intervenant" />
+        xpath="specialites/specialite/responsable/ref-intervenant | specialites/specialite/professeurs/ref-intervenant | enseignements/unite/professeurs/ref-intervenant" />
       <xs:field xpath="@ref" />
     </xs:keyref>
     
@@ -58,8 +58,10 @@
       	<xs:element name="identifiant" type="ID" />
         <xs:element ref="nom"/>
         <xs:element minOccurs="0" ref="mail"/>
-        <xs:element ref="lieu"/>
         <xs:element minOccurs="0" ref="siteWeb" />
+        <!-- On peut ajouter au plus 3 numéro de téléphone -->
+				<xs:element minOccurs="0" maxOccurs="3" ref="telephone" />
+				<xs:element ref="lieu"/>
         <xs:element minOccurs="0" ref="adresse" />
         <xs:element minOccurs="0" ref="autre" />
       </xs:sequence>
@@ -223,6 +225,7 @@
         <xs:element minOccurs="0" ref="finalite"/>
         <xs:element ref="lieu"/>
         <xs:element ref="responsable"/>
+         <xs:element minOccurs="0" ref="professeurs"/>
         <xs:element ref="description"/>
         <xs:element ref="competences"/>
         <xs:element minOccurs="0" ref="connaissances"/>
@@ -399,6 +402,16 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
+  <!-- REGEX POUR VERIFIER TELEPHONE +33 ou 10 chiffres avec espace entre 
+		2 chiffres ou null -->
+	<xs:element name="telephone">
+		<xs:simpleType>
+			<xs:restriction base="xs:normalizedString">
+				<xs:pattern
+					value="null|[0-9]{10}|([0-9]{2}\s){4}[0-9]{2}|(\+33)\s[0-9]\s([0-9]{2}\s){3}[0-9]{2}" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
 
   <!-- HTML BALISE -->
   <xs:element name="p">

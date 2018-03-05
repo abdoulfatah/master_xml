@@ -2,14 +2,89 @@
 
 
 
-<xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet
+        version="2.0"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+        <xsl:variable name="description">
+ 					
+ 		<div class="titre">Présentation du Master « Informatique »</div>
+ 			<div class="contenu">
+ 					<p>
+ 			Le master « informatique » a pour vocation la formation de
+ 			professionnels de l'informatique au niveau bac+5. L'objectif est
+ 			d'offrir aux etudiants une large palette de competences et de savoirs
+ 			afin de rendre accessible des emplois de haut niveau dans le monde de
+ 			la recherche, dans celui de l'entreprise ou dans d'autres
+ 			organisations. Notre ambition est de former des etudiants dont les
+ 			competences sont tout a fait comparables a celles acquises dans les
+ 			meilleurs ecoles d'ingenieurs.
+
+ 		</p>
+ 		<p>
+ 			Le Master informatique repose sur plus de 25 ans d'experience
+ 			d'enseignement d'informatique sur l'Universite d'Aix-Marseille
+ 			(maitrise, DEA et DESS en informatique) et s'est structure lors du
+ 			passage au LMD. Si vous n'etes pas familier des formations organisees
+ 			suivant le schema Licence/Master/Doctorat, nous vous conseillons de
+ 			lire cette petite introduction.
+ 		</p>
+ 					<p>
+
+ 			Le Master Informatique s'appuie principalement sur les compétences de
+ 			deux laboratoires reconnus :
+ 			<ul>
+ 				<li>
+ 					<a href="http://www.lif.univ-mrs.fr/">Laboratoire d'Informatique Fondamentale de Marseille
+ 						(LIF)</a>
+ 				</li>
+ 				<li>
+ 					<a href="http://www.lsis.org/"> Laboratoire des Sciences de l'Information et des
+ 						Systèmes (LSIS)</a>
+ 				</li>
+ 			</ul>
+ 		</p>
+ 		<p>La master est enseigné à Marseille sur le campus de Luminy (site
+ 			sud) et sur le campus de l'Étoile (site nord) qui regroupe
+ 			Château-Gombert et Saint-Jérôme.
+
+ 		</p>
+ 		<p>
+
+ 			Notre offre de formation au niveau Bac+5 est organisée autour de deux
+ 			axes forts :
+ 			<ul>
+ 				<li>
+ 					Le master est structuré sous la forme d'une
+ 					<a href="parcours/specialites/SPE_MASTER1.html"> première année
+ 						commune (M1)</a>
+ 					et dupliquée sur les sites sud et nord, suivie d'une
+ 					deuxième année
+ 					de spécialisation (M2).
+ 				</li>
+ 				<li>
+ 					La
+ 					<strong>deuxième année</strong>
+ 					est composée de sept spécialités. Deux à
+ 					finalité recherche, et cinq
+ 					à finalité professionnelle. Certaines
+ 					spécialités sont ensuite
+ 					déclinées en plusieurs parcours. Ces
+ 					spécialités sont localisées à
+ 					Luminy ou à Saint-Jérôme en fonction
+ 					des compétences locales.
+ 				</li>
+
+ 			</ul>
+ 		</p>
+ 		</div>
+		</xsl:variable>
 	<!-- NOEUD MASTER -->
 	<xsl:template match="master">
 
 		<!-- Description des unités d'enseignement -->
-		<xsl:document href="parcours/unites.html">
+		<xsl:result-document href="parcours/unites.html">
 			<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 			<html xmlns="http://www.w3.org/1999/xhtml">
 				<head>
@@ -30,6 +105,9 @@
 							<xsl:with-param name="link" />
 						</xsl:call-template>
 					</div>
+					<center>
+						<h1>Les unités d'enseignements</h1>
+					</center>
 					<div class="body">
 						<div class="titre">
 							Les unites triées par code
@@ -71,11 +149,11 @@
 					</div>
 				</body>
 			</html>
-		</xsl:document>
+		</xsl:result-document>
 
 
 		<!-- Description des intervenants -->
-		<xsl:document href="parcours/intervenants.html">
+		<xsl:result-document href="parcours/intervenants.html">
 			<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 			<html xmlns="http://www.w3.org/1999/xhtml">
 				<head>
@@ -94,10 +172,10 @@
 						</xsl:call-template>
 					</div>
 					<center>
-						<h1>Liste des intervenants de chaque UEs du master</h1>
+						<h1>Les intervenants du Master Informatique</h1>
 					</center>
 					<div class="body">
-						<div class="titre">Une premiere liste</div>
+						<div class="titre">Une première liste</div>
 						<div class="contenu">
 							<p>L'équipe pedagogique est en cours de constitution. Cette liste
 								sera completée en avril 2018.
@@ -105,8 +183,9 @@
 							<table>
 								<tr>
 									<td>Nom</td>
+									<td>Téléphon</td>
 									<td>Courriel</td>
-									<td>Lieu d'Etablissement</td>
+									<td>Web</td>
 								</tr>
 								<xsl:for-each select="//intervenant">
 									<tr>
@@ -116,10 +195,13 @@
 											</a>
 										</td>
 										<td>
+											<xsl:value-of select="telephone" />
+										</td>
+										<td>
 											<xsl:value-of select="mail" />
 										</td>
 										<td>
-											<xsl:value-of select="lieu" />
+											<xsl:value-of select="siteWeb" />
 										</td>
 									</tr>
 								</xsl:for-each>
@@ -128,13 +210,13 @@
 					</div>
 				</body>
 			</html>
-		</xsl:document>
+		</xsl:result-document>
 
 
 
 		<!-- Production une page XHTML par intervenant -->
 		<xsl:for-each select="//intervenant">
-			<xsl:document href="intervenants/{@id}.html">
+			<xsl:result-document href="intervenants/{@id}.html">
 				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
@@ -152,12 +234,12 @@
 						<xsl:apply-templates select="." />
 					</body>
 				</html>
-			</xsl:document>
+			</xsl:result-document>
 		</xsl:for-each>
 
 		<!-- Generation Page specialite -->
 		<xsl:for-each select="//specialite">
-			<xsl:document href="parcours/specialites/{@id}.html">
+			<xsl:result-document href="parcours/specialites/{@id}.html">
 				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
@@ -184,12 +266,12 @@
 						</div>
 					</body>
 				</html>
-			</xsl:document>
+			</xsl:result-document>
 		</xsl:for-each>
 
 		<!-- Generation une page XHTML par UE -->
 		<xsl:for-each select="//unite">
-			<xsl:document href="enseignements/{@id}.html">
+			<xsl:result-document href="enseignements/{@id}.html">
 				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
@@ -207,12 +289,12 @@
 						<xsl:apply-templates select="." />
 					</body>
 				</html>
-			</xsl:document>
+			</xsl:result-document>
 		</xsl:for-each>
 
 		<!-- Génération d'une page XHTML par parcour -->
 		<xsl:for-each select="//parcour">
-			<xsl:document href="parcours/{@id}.html">
+			<xsl:result-document href="parcours/{@id}.html">
 				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
@@ -269,7 +351,7 @@
 						</div>
 					</body>
 				</html>
-			</xsl:document>
+			</xsl:result-document>
 		</xsl:for-each>
 
 		<!-- Squelette de l' index HTML -->
@@ -278,7 +360,7 @@
 			<head>
 				<link rel="stylesheet" type="text/css" href="css/master.css" />
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-				<title>Master Luminy</title>
+				<title>Master Informatique de Marseille</title>
 			</head>
 			<body>
 				<div class="header">
@@ -293,7 +375,7 @@
 					</xsl:call-template>
 				</div>
 				<div class="body">
-					<xsl:value-of select="description" />
+					<xsl:copy-of select="$description" />
 				</div>
 			</body>
 		</html>
@@ -345,14 +427,14 @@
 			<li>
 				<a href="{$link}unites.html">
 					<strong>
-						Unites
+						Les unités
 					</strong>
 				</a>
 			</li>
 			<li>
 				<a href="{$link}intervenants.html">
 					<strong>
-						Intervenants
+						Les intervenants
 					</strong>
 				</a>
 			</li>
@@ -433,13 +515,20 @@
 							<xsl:value-of select="identifiant" />
 						</li>
 						<li>
-							Adresse Mail
-							<xsl:value-of select="mail" />
-						</li>
-						<li>
 							lieu d'Etablissement :
 							<xsl:value-of select="lieu" />
 						</li>
+						<li>
+							Téléphone :
+							<xsl:value-of select="telephone" />
+						</li>
+						<li>
+							Adresse électronique :
+							<a href="#">
+							<xsl:value-of select="mail" />
+							</a>
+						</li>
+						
 					</ul>
 				</div>
 				<br />

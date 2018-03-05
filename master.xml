@@ -1,27 +1,83 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE master SYSTEM "master.dtd">
+<?xml-stylesheet type="text/xsl" href="xsl/master.xsl" ?>
 <master>
 	<intervenants>
 		<intervenant id="IN18">
 			<identifiant>IN18</identifiant>
 			<nom>Jean-Luc MASSAT</nom>
 			<mail>jean-luc.massat@&dom.amu;</mail>
+			<telephone>04 860 90 488 </telephone>
 			<lieu>&site1;, &site2;</lieu>
+		</intervenant>
+		<intervenant id="IN28">
+			<identifiant>IN28</identifiant>
+			<nom>Kevin PERROT</nom>
+			<mail>kevin.perrot@&dom.lif;</mail>
+			<telephone>04 91 82 94 82</telephone>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="IN38">
+			<identifiant>IN38</identifiant>
+			<nom>Philippe JEGOU</nom>
+			<mail>philippe.jegou@&dom.lif;</mail>
+			<telephone>04 91 82 95 27</telephone>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="IN48">
+			<identifiant>IN48</identifiant>
+			<nom>Peter NIEBERT</nom>
+			<mail>peter.niebert@&dom.lif;</mail>
+			<telephone>04 91 82 94 92</telephone>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="IN58">
+			<identifiant>IN58</identifiant>
+			<nom>luigi SANTOCANALE</nom>
+			<mail>luigi.santocanale@&dom.lif;</mail>
+			<lieu>&site1;, &site3;</lieu>
+		</intervenant>
+		<intervenant id="IN68">
+			<identifiant>IN68</identifiant>
+			<nom>Magali CONTENSIN</nom>
+			<mail>magali.contensin@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="IN78">
+			<identifiant>IN78</identifiant>
+			<nom>Ann COADY</nom>
+			<mail>ann.coady@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="IN88">
+			<identifiant>IN88</identifiant>
+			<nom>Vincent RISH</nom>
+			<mail>vincent.rish@&dom.lif;</mail>
+			<lieu>&site1;</lieu>
+		</intervenant>
+		<intervenant id="IN98">
+			<identifiant>IN98</identifiant>
+			<nom>François DENIS</nom>
+			<mail>françois.denis@&dom.lif;</mail>
+			<telephone>0413551311</telephone>
+			<lieu>&site1;</lieu>
 		</intervenant>
 		<intervenant id="IN7680">
 			<identifiant>IN7680</identifiant>
 			<nom>Claude LAI</nom>
-			<mail>ClaudeLAI@&dom.amu;</mail>
+			<mail>Claude.lai@&dom.amu;</mail>
+			<telephone>0491178431</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN3524">
 			<identifiant>IN3524</identifiant>
 			<nom>Denis LUGIEZ</nom>
-			<mail>denis.luigiezZ@&dom.amu;</mail>
+			<mail>denis.lugiez@&dom.amu;</mail>
+			<telephone>04 860 90 487</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN17708">
-		    <identifiant>IN17708</identifiant>
+			<identifiant>IN17708</identifiant>
 			<nom>Stephane MICHEL</nom>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
@@ -29,24 +85,28 @@
 			<identifiant>IN9224</identifiant>
 			<nom>Remi MORIN</nom>
 			<mail>remi.morin@&dom.amu;</mail>
+			<telephone>04 860 90 490	</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN7722">
 			<identifiant>IN7722</identifiant>
 			<nom>Noel NOVELLI</nom>
 			<mail>noel.noveli@&dom.amu;</mail>
+			<telephone>04 860 90 495</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN13794">
 			<identifiant>IN13794</identifiant>
 			<nom>Frederic OLIVE</nom>
 			<mail>frederic.olive@&dom.amu;</mail>
+			<telephone>04 860 90 496</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN12632">
 			<identifiant>IN12632</identifiant>
 			<nom>Nicola OLIVETTI</nom>
 			<mail>nicolas.olivetti@&dom.amu;</mail>
+			<telephone>04 860 91 046</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN12969">
@@ -59,30 +119,35 @@
 			<identifiant>IN4595</identifiant>
 			<nom>Pierre-Alain REYNIER</nom>
 			<mail>pierre-alain.reynier@&dom.amu;</mail>
+			<telephone>04 860 90 673</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN7931">
 			<identifiant>IN7931</identifiant>
 			<nom>Sylvie RISCH</nom>
 			<mail>sylvie.risch@&dom.amu;</mail>
+			<telephone>04 860 90 674</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN26">
 			<identifiant>IN26</identifiant>
 			<nom>Claude SABATIER</nom>
 			<mail>claude.sabatier@&dom.amu;</mail>
+			<telephone>04 860 90 676</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN16625">
 			<identifiant>IN16625</identifiant>
 			<nom>Sana SELLAMI</nom>
 			<mail>sana.sellami@&dom.amu;</mail>
+			<telephone>+33 4 91 05 60 57</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN8086">
 			<identifiant>IN8086</identifiant>
 			<nom>Yann VAXES</nom>
 			<mail>yann.vaxes@&dom.amu;</mail>
+			<telephone>04 860 90 684	</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="II1000">
@@ -95,78 +160,91 @@
 			<identifiant>IN616</identifiant>
 			<nom>Roland AGOPIAN</nom>
 			<mail>roland.agopian@&dom.amu;</mail>
+			<telephone>0413551364</telephone>
 			<lieu>UFR Sciences</lieu>
 		</intervenant>
 		<intervenant id="IN1021">
 			<identifiant>IN1021</identifiant>
 			<nom>clara BERTOLISSI</nom>
 			<mail>clara.bertolissi@&dom.amu;</mail>
+			<telephone> 04 860 90 456</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN2563">
 			<identifiant>IN2563</identifiant>
 			<nom>Emmanuel GODARD</nom>
 			<mail>emmanuel.godard@&dom.amu;</mail>
+			<telephone> 04 860 90 470	</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN6213">
 			<identifiant>IN6213</identifiant>
 			<nom>Arnaud LABOUREL</nom>
 			<mail>arnaud.labourel@&dom.amu;</mail>
+			<telephone> 04 860 90 477</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN7001">
 			<identifiant>IN7001</identifiant>
 			<nom>Nadia CREIGNOU</nom>
 			<mail>nadia.creignou@&dom.amu;</mail>
+			<telephone> 04 860 90 462</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN8007">
 			<identifiant>IN8007</identifiant>
 			<nom>Line JAMET</nom>
 			<mail>line.jakubiec@&dom.amu;</mail>
+			<telephone> 04 860 90 474</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN8615">
 			<identifiant>IN8615</identifiant>
 			<nom>Bertrand ESTELLON</nom>
 			<mail>bertrand.estellon@&dom.amu;</mail>
+			<telephone> 04 860 90 465</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN9941">
 			<identifiant>IN9941</identifiant>
 			<nom>Frederic BECHET</nom>
 			<mail>frederic.bechet@&dom.amu;</mail>
+			<telephone>04 86 09 04 55</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN10388">
 			<identifiant>IN10388</identifiant>
 			<nom>Benoit FAVRE</nom>
 			<mail>benoit.favre@&dom.amu;</mail>
+			<telephone>04 860 90 467</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN12068">
 			<identifiant>IN12068</identifiant>
 			<nom>Djamal HABET</nom>
 			<mail>djamal.habet@&dom.amu;</mail>
+			<telephone> 0491288321</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN12316">
 			<identifiant>IN12316</identifiant>
 			<nom>Isabelle DEMONGODIN</nom>
 			<mail>isabel.demongodin@&dom.amu;</mail>
+			<telephone>0491056077</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN12544">
 			<identifiant>IN12544</identifiant>
 			<nom>Omar BOUCELMA</nom>
 			<mail>omar.boucelma@&dom.amu;</mail>
+			<telephone>0491056053</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN14758">
 			<identifiant>IN14758</identifiant>
 			<nom>Martine BROCHE</nom>
 			<mail>martine.broche@&dom.amu;</mail>
+			<telephone>0491933008</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 	</intervenants>
@@ -177,7 +255,7 @@
 			<identifiant>ENSINBU1</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
 			<professeurs>
-				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN78"></ref-intervenant>
 			</professeurs>
 			<resume>
 				<p>
@@ -191,6 +269,9 @@
 			<nom>COMMUNICATION</nom>
 			<identifiant>ENSINBU2</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN12969"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>chapitre 1 : Theories de la communication : 1.1 La theorie
 					mathematique de l’information (Shannon, Weaver), la cybernetique
@@ -217,7 +298,7 @@
 			<identifiant>ENSINBU4</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
 			<professeurs>
-				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN18"></ref-intervenant>
 			</professeurs>
 			<resume>XML, DTD, XSD XPath, XSLT, XQuery.</resume>
 		</unite>
@@ -240,7 +321,7 @@
 			<identifiant>ENSINBU12</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
 			<professeurs>
-				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN88"></ref-intervenant>
 			</professeurs>
 			<resume>Introduction a l'IA Problemes d'espace d'etats et
 				d'exploration Logiques pour l'IA et demonstration automatique
@@ -253,7 +334,7 @@
 			<identifiant>ENSINBU15</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
 			<professeurs>
-				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN9224"></ref-intervenant>
 			</professeurs>
 			<resume>&noResume; </resume>
 		</unite>
@@ -262,7 +343,7 @@
 			<identifiant>ENSINBU6</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
 			<professeurs>
-				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN38"></ref-intervenant>
 			</professeurs>
 
 			<resume>
@@ -288,7 +369,7 @@
 			<identifiant>ENSINBU7</identifiant>
 			<nombreCredit>&cred6;</nombreCredit>
 			<professeurs>
-				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN38"></ref-intervenant>
 			</professeurs>
 
 			<resume>
@@ -373,7 +454,7 @@
 			<identifiant>ENSINBU11</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
 			<professeurs>
-				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN7722"></ref-intervenant>
 			</professeurs>
 
 			<resume>
@@ -444,12 +525,18 @@
 			<nom>Introduction a l'apprentissage automatique</nom>
 			<identifiant>ENSINBU16</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN98"></ref-intervenant>
+			</professeurs>
 			<resume>&noResume; </resume>
 		</unite>
 		<unite id="ENSINAU1">
 			<nom>Genie Logiciel</nom>
 			<identifiant>ENSINAU1</identifiant>
 			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN28"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>
 					<ul>
@@ -476,7 +563,10 @@
 			<nom>Complexite</nom>
 			<identifiant>ENSINAU2</identifiant>
 			<nombreCredit>&cred6;</nombreCredit>
-
+			<professeurs>
+				<ref-intervenant ref="IN13794"></ref-intervenant>
+				<ref-intervenant ref="IN7001"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>
 					<ul>
@@ -500,6 +590,9 @@
 			<nom>Reseaux</nom>
 			<identifiant>ENSINAU3</identifiant>
 			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN2563"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>
 					<ul>
@@ -523,6 +616,9 @@
 			<nom>Programmation fonctionnelle</nom>
 			<identifiant>ENSINAU4</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN58"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>
 					<ul>
@@ -612,6 +708,9 @@
 			<nom>Outils de l'internet</nom>
 			<identifiant>ENSINAU7</identifiant>
 			<nombreCredit>&cred6;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN68"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>
 					<ul>
@@ -640,6 +739,9 @@
 			<nom>Systeme embarque</nom>
 			<identifiant>ENSINAU8</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN48"></ref-intervenant>
+			</professeurs>
 			<resume>
 				&noResume; </resume>
 		</unite>
@@ -648,6 +750,9 @@
 			<nom>Fondamentaux pour l'ingenierie des langues</nom>
 			<identifiant>ENSINAU9</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN9941"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>
 					<ul>
@@ -691,6 +796,9 @@
 			<nom>BDR : approfondissement</nom>
 			<identifiant>ENSINAU12</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN26"></ref-intervenant>
+			</professeurs>
 			<resume>
 				&noResume; </resume>
 		</unite>
@@ -812,6 +920,9 @@
 			<nom>Communication 2</nom>
 			<identifiant>ENSINCU28</identifiant>
 			<nombreCredit>&cred3;</nombreCredit>
+			<professeurs>
+				<ref-intervenant ref="IN12969"></ref-intervenant>
+			</professeurs>
 			<resume>
 				<p>
 					<ul>
@@ -1695,8 +1806,7 @@
 			<ref-unite ref="ENSINAU13"></ref-unite>
 			<ref-unite ref="ENSINBU16"></ref-unite>
 		</bloc>
-		<bloc id="TC_FSI_ISL" titre="TC des parcours FSI et ISL"
-			etat="&obli;">
+		<bloc id="TC_FSI_ISL" titre="TC des parcours FSI et ISL" etat="&obli;">
 			<ref-unite ref="ENSINCU27"></ref-unite>
 			<ref-unite ref="ENSINCU28"></ref-unite>
 			<ref-unite ref="ENSINCU29"></ref-unite>
@@ -1707,33 +1817,28 @@
 			etat="&option;">
 			<ref-unite ref="ENSINCU67"></ref-unite>
 		</bloc>
-		<bloc id="SPE_S3_FSI_OBLI" titre="Unites obligatoires"
-			etat="&obli;">
+		<bloc id="SPE_S3_FSI_OBLI" titre="Unites obligatoires" etat="&obli;">
 			<ref-unite ref="ENSINCU32"></ref-unite>
 			<ref-unite ref="ENSINCU33"></ref-unite>
 			<ref-unite ref="ENSINCU34"></ref-unite>
 			<ref-unite ref="ENSINCU35"></ref-unite>
 		</bloc>
-		<bloc id="SPE_S4_FSI_OBLI" titre="Unites obligatoires"
-			etat="&obli;">
+		<bloc id="SPE_S4_FSI_OBLI" titre="Unites obligatoires" etat="&obli;">
 			<ref-unite ref="ENSINDU3"></ref-unite>
 			<ref-unite ref="ENSINDU4"></ref-unite>
 		</bloc>
-		<bloc id="SPE_S3_ISL_OBLI" titre="Unites obligatoires"
-			etat="&obli;">
+		<bloc id="SPE_S3_ISL_OBLI" titre="Unites obligatoires" etat="&obli;">
 			<ref-unite ref="ENSINCU36"></ref-unite>
 			<ref-unite ref="ENSINCU37"></ref-unite>
 			<ref-unite ref="ENSINCU38"></ref-unite>
 			<ref-unite ref="ENSINCU39"></ref-unite>
 			<ref-unite ref="ENSINCU40"></ref-unite>
 		</bloc>
-		<bloc id="SPE_S4_ISL_OBLI" titre="Unites obligatoires"
-			etat="&obli;">
+		<bloc id="SPE_S4_ISL_OBLI" titre="Unites obligatoires" etat="&obli;">
 			<ref-unite ref="ENSINDU3"></ref-unite>
 			<ref-unite ref="ENSINDU4"></ref-unite>
 		</bloc>
-		<bloc id="SPE_S3_IF_OBLI" titre="Unites obligatoires"
-			etat="&obli;">
+		<bloc id="SPE_S3_IF_OBLI" titre="Unites obligatoires" etat="&obli;">
 			<ref-unite ref="ENSINCU1"></ref-unite>
 			<ref-unite ref="ENSINCU2"></ref-unite>
 			<ref-unite ref="ENSINCU3"></ref-unite>
@@ -1761,8 +1866,7 @@
 			<ref-unite ref="ENSINCU22"></ref-unite>
 			<ref-unite ref="ENSINCU23"></ref-unite>
 		</bloc>
-		<bloc id="SPE_S4_IF_OBLI" titre="Unites obligatoires"
-			etat="&obli;">
+		<bloc id="SPE_S4_IF_OBLI" titre="Unites obligatoires" etat="&obli;">
 			<ref-unite ref="ENSINDU1"></ref-unite>
 			<ref-unite ref="ENSINDU2"></ref-unite>
 		</bloc>
@@ -1811,13 +1915,31 @@
 
 	<specialites>
 		<specialite id="SPE_MASTER1">
-			<nom>Master 1 - Premiere annee de tronc commun</nom>
+			<nom>Master 1 - Première année de tronc commun</nom>
 			<identifiant>MASTER1</identifiant>
 			<code>MASTER1</code>
 			<lieu>&site1;&site3;</lieu>
 			<responsable>
 				<ref-intervenant ref="IN9224"></ref-intervenant>
 			</responsable>
+			<professeurs>
+				<ref-intervenant ref="IN9224"></ref-intervenant>
+				<ref-intervenant ref="IN18"></ref-intervenant>
+				<ref-intervenant ref="IN7722"></ref-intervenant>
+				<ref-intervenant ref="IN13794"></ref-intervenant>
+				<ref-intervenant ref="IN12969"></ref-intervenant>
+				<ref-intervenant ref="IN26"></ref-intervenant>
+				<ref-intervenant ref="IN2563"></ref-intervenant>
+				<ref-intervenant ref="IN7001"></ref-intervenant>
+				<ref-intervenant ref="IN9941"></ref-intervenant>
+				<ref-intervenant ref="IN12544"></ref-intervenant>
+				<ref-intervenant ref="IN28"></ref-intervenant>
+				<ref-intervenant ref="IN48"></ref-intervenant>
+				<ref-intervenant ref="IN58"></ref-intervenant>
+				<ref-intervenant ref="IN68"></ref-intervenant>
+				<ref-intervenant ref="IN8007"></ref-intervenant>
+				<ref-intervenant ref="IN78"></ref-intervenant>
+			</professeurs>
 			<description>
 				<p>L'objectif de cette premiere annee est de donner les bases
 					indispensables permettant, en deuxieme annee, de choisir une
@@ -1885,8 +2007,19 @@
 			<finalite>Rech.</finalite>
 			<lieu>&site1;</lieu>
 			<responsable>
-				<ref-intervenant ref="IN9941"></ref-intervenant>
+				<ref-intervenant ref="II1000"></ref-intervenant>
+				<ref-intervenant ref="IN4595"></ref-intervenant>
 			</responsable>
+			<professeurs>
+				<ref-intervenant ref="II1000"></ref-intervenant>
+				<ref-intervenant ref="IN4595"></ref-intervenant>
+				<ref-intervenant ref="IN26"></ref-intervenant>
+				<ref-intervenant ref="IN7722"></ref-intervenant>
+				<ref-intervenant ref="IN3524"></ref-intervenant>
+				<ref-intervenant ref="IN12969"></ref-intervenant>
+				<ref-intervenant ref="IN16625"></ref-intervenant>
+				<ref-intervenant ref="IN616"></ref-intervenant>
+			</professeurs>
 			<description></description>
 			<competences>En termes de competences cette specialite a pour but de
 				developper chez les etudiants leur capacite a raisonner et a for, et
@@ -1925,8 +2058,22 @@
 				Fiabilite, securite et integration logicielle</finalite>
 			<lieu>&site1;</lieu>
 			<responsable>
-				<ref-intervenant ref="IN9941"></ref-intervenant>
+				<ref-intervenant ref="IN2563"></ref-intervenant>
 			</responsable>
+			<professeurs>
+				<ref-intervenant ref="IN2563"></ref-intervenant>
+				<ref-intervenant ref="IN9941"></ref-intervenant>
+				<ref-intervenant ref="IN8615"></ref-intervenant>
+				<ref-intervenant ref="IN6213"></ref-intervenant>
+				<ref-intervenant ref="IN1021"></ref-intervenant>
+				<ref-intervenant ref="II1000"></ref-intervenant>
+				<ref-intervenant ref="IN616"></ref-intervenant>
+				<ref-intervenant ref="IN8086"></ref-intervenant>
+				<ref-intervenant ref="IN16625"></ref-intervenant>
+				<ref-intervenant ref="IN4595"></ref-intervenant>
+				<ref-intervenant ref="IN12632"></ref-intervenant>
+				<ref-intervenant ref="IN12969"></ref-intervenant>
+			</professeurs>
 			<description>
 				<p> La formation donne les principes et techniques lies a la
 					conception de systemes informatiques surs dans un environnement
@@ -2040,7 +2187,8 @@
 					assurance,..) sont egalement des employeurs. Les PME innovantes en
 					informatique (editeurs, prestataires de services, ...) et les
 					collectivites territoriales et lieus publics completent le
-					secteur d'activite.
+					secteur
+					d'activite.
 				</p>
 				<p>
 					Metiers vises pour le parcours FSI :
@@ -2095,6 +2243,20 @@
 			<responsable>
 				<ref-intervenant ref="IN18"></ref-intervenant>
 			</responsable>
+			<professeurs>
+				<ref-intervenant ref="IN18"></ref-intervenant>
+				<ref-intervenant ref="IN7680"></ref-intervenant>
+				<ref-intervenant ref="IN3524"></ref-intervenant>
+				<ref-intervenant ref="IN17708"></ref-intervenant>
+				<ref-intervenant ref="IN12068"></ref-intervenant>
+				<ref-intervenant ref="IN12316"></ref-intervenant>
+				<ref-intervenant ref="II1000"></ref-intervenant>
+				<ref-intervenant ref="IN8086"></ref-intervenant>
+				<ref-intervenant ref="IN16625"></ref-intervenant>
+				<ref-intervenant ref="IN4595"></ref-intervenant>
+				<ref-intervenant ref="IN12632"></ref-intervenant>
+				<ref-intervenant ref="IN12969"></ref-intervenant>
+			</professeurs>
 			<description>
 				<p>Le developpement de l'Internet/Intranet et des applications
 					associees a fait emerger de nouvelles normes pour la structuration
@@ -2238,7 +2400,8 @@
 					assurance,..) sont egalement des employeurs. Les PME innovantes en
 					informatique (editeurs, prestataires de services, ...) et les
 					collectivites territoriales et lieus publics completent le
-					secteur d'activite.
+					secteur
+					d'activite.
 					<p>Metiers vises pour le parcours FSI :</p>
 					<ul>
 						<li>Ingenieur etudes et developpement,</li>
@@ -2311,6 +2474,7 @@
 			organisations. Notre ambition est de former des etudiants dont les
 			competences sont tout a fait comparables a celles acquises dans les
 			meilleurs ecoles d'ingenieurs.
+
 		</p>
 		<p>
 			Le Master informatique repose sur plus de 25 ans d'experience
@@ -2320,5 +2484,6 @@
 			suivant le schema Licence/Master/Doctorat, nous vous conseillons de
 			lire cette petite introduction.
 		</p>
+		
 	</description>
 </master>
