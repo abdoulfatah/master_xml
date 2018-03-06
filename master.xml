@@ -7,7 +7,7 @@
 			<identifiant>IN18</identifiant>
 			<nom>Jean-Luc MASSAT</nom>
 			<mail>jean-luc.massat@&dom.amu;</mail>
-			<telephone>04 860 90 488 </telephone>
+			<telephone>04 86 09 04 88</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN28">
@@ -73,7 +73,7 @@
 			<identifiant>IN3524</identifiant>
 			<nom>Denis LUGIEZ</nom>
 			<mail>denis.lugiez@&dom.amu;</mail>
-			<telephone>04 860 90 487</telephone>
+			<telephone>04 86 09 04 87</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN17708">
@@ -85,28 +85,28 @@
 			<identifiant>IN9224</identifiant>
 			<nom>Remi MORIN</nom>
 			<mail>remi.morin@&dom.amu;</mail>
-			<telephone>04 860 90 490	</telephone>
+			<telephone>04 86 09 04 90</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN7722">
 			<identifiant>IN7722</identifiant>
 			<nom>Noel NOVELLI</nom>
 			<mail>noel.noveli@&dom.amu;</mail>
-			<telephone>04 860 90 495</telephone>
+			<telephone>04 86 09 04 95</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN13794">
 			<identifiant>IN13794</identifiant>
 			<nom>Frederic OLIVE</nom>
 			<mail>frederic.olive@&dom.amu;</mail>
-			<telephone>04 860 90 496</telephone>
+			<telephone>04 86 09 04 96</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN12632">
 			<identifiant>IN12632</identifiant>
 			<nom>Nicola OLIVETTI</nom>
 			<mail>nicolas.olivetti@&dom.amu;</mail>
-			<telephone>04 860 91 046</telephone>
+			<telephone>04 86 09 10 46</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN12969">
@@ -119,21 +119,21 @@
 			<identifiant>IN4595</identifiant>
 			<nom>Pierre-Alain REYNIER</nom>
 			<mail>pierre-alain.reynier@&dom.amu;</mail>
-			<telephone>04 860 90 673</telephone>
+			<telephone>04 86 09 06 73</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN7931">
 			<identifiant>IN7931</identifiant>
 			<nom>Sylvie RISCH</nom>
 			<mail>sylvie.risch@&dom.amu;</mail>
-			<telephone>04 860 90 674</telephone>
+			<telephone>04 86 09 06 74</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN26">
 			<identifiant>IN26</identifiant>
 			<nom>Claude SABATIER</nom>
 			<mail>claude.sabatier@&dom.amu;</mail>
-			<telephone>04 860 90 676</telephone>
+			<telephone>04 86 09 06 76</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="IN16625">
@@ -147,7 +147,7 @@
 			<identifiant>IN8086</identifiant>
 			<nom>Yann VAXES</nom>
 			<mail>yann.vaxes@&dom.amu;</mail>
-			<telephone>04 860 90 684	</telephone>
+			<telephone>04 86 09 06 84</telephone>
 			<lieu>&site1;, &site2;</lieu>
 		</intervenant>
 		<intervenant id="II1000">
@@ -167,42 +167,42 @@
 			<identifiant>IN1021</identifiant>
 			<nom>clara BERTOLISSI</nom>
 			<mail>clara.bertolissi@&dom.amu;</mail>
-			<telephone> 04 860 90 456</telephone>
+			<telephone>04 86 09 04 56</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN2563">
 			<identifiant>IN2563</identifiant>
 			<nom>Emmanuel GODARD</nom>
 			<mail>emmanuel.godard@&dom.amu;</mail>
-			<telephone> 04 860 90 470	</telephone>
+			<telephone>04 86 09 04 70</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN6213">
 			<identifiant>IN6213</identifiant>
 			<nom>Arnaud LABOUREL</nom>
 			<mail>arnaud.labourel@&dom.amu;</mail>
-			<telephone> 04 860 90 477</telephone>
+			<telephone>04 86 09 04 77</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN7001">
 			<identifiant>IN7001</identifiant>
 			<nom>Nadia CREIGNOU</nom>
 			<mail>nadia.creignou@&dom.amu;</mail>
-			<telephone> 04 860 90 462</telephone>
+			<telephone>04 86 09 04 62</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN8007">
 			<identifiant>IN8007</identifiant>
 			<nom>Line JAMET</nom>
 			<mail>line.jakubiec@&dom.amu;</mail>
-			<telephone> 04 860 90 474</telephone>
+			<telephone>04 86 09 04 74</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN8615">
 			<identifiant>IN8615</identifiant>
 			<nom>Bertrand ESTELLON</nom>
 			<mail>bertrand.estellon@&dom.amu;</mail>
-			<telephone> 04 860 90 465</telephone>
+			<telephone>04 86 09 04 65</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN9941">
@@ -216,14 +216,14 @@
 			<identifiant>IN10388</identifiant>
 			<nom>Benoit FAVRE</nom>
 			<mail>benoit.favre@&dom.amu;</mail>
-			<telephone>04 860 90 467</telephone>
+			<telephone>04 86 09 04 67</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN12068">
 			<identifiant>IN12068</identifiant>
 			<nom>Djamal HABET</nom>
 			<mail>djamal.habet@&dom.amu;</mail>
-			<telephone> 0491288321</telephone>
+			<telephone>0491288321</telephone>
 			<lieu>UFR Science</lieu>
 		</intervenant>
 		<intervenant id="IN12316">

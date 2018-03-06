@@ -2,84 +2,10 @@
 
 
 
-<xsl:stylesheet
-        version="2.0"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<xsl:stylesheet version="2.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-        <xsl:variable name="description">
- 					
- 		<div class="titre">Présentation du Master « Informatique »</div>
- 			<div class="contenu">
- 					<p>
- 			Le master « informatique » a pour vocation la formation de
- 			professionnels de l'informatique au niveau bac+5. L'objectif est
- 			d'offrir aux etudiants une large palette de competences et de savoirs
- 			afin de rendre accessible des emplois de haut niveau dans le monde de
- 			la recherche, dans celui de l'entreprise ou dans d'autres
- 			organisations. Notre ambition est de former des etudiants dont les
- 			competences sont tout a fait comparables a celles acquises dans les
- 			meilleurs ecoles d'ingenieurs.
 
- 		</p>
- 		<p>
- 			Le Master informatique repose sur plus de 25 ans d'experience
- 			d'enseignement d'informatique sur l'Universite d'Aix-Marseille
- 			(maitrise, DEA et DESS en informatique) et s'est structure lors du
- 			passage au LMD. Si vous n'etes pas familier des formations organisees
- 			suivant le schema Licence/Master/Doctorat, nous vous conseillons de
- 			lire cette petite introduction.
- 		</p>
- 					<p>
-
- 			Le Master Informatique s'appuie principalement sur les compétences de
- 			deux laboratoires reconnus :
- 			<ul>
- 				<li>
- 					<a href="http://www.lif.univ-mrs.fr/">Laboratoire d'Informatique Fondamentale de Marseille
- 						(LIF)</a>
- 				</li>
- 				<li>
- 					<a href="http://www.lsis.org/"> Laboratoire des Sciences de l'Information et des
- 						Systèmes (LSIS)</a>
- 				</li>
- 			</ul>
- 		</p>
- 		<p>La master est enseigné à Marseille sur le campus de Luminy (site
- 			sud) et sur le campus de l'Étoile (site nord) qui regroupe
- 			Château-Gombert et Saint-Jérôme.
-
- 		</p>
- 		<p>
-
- 			Notre offre de formation au niveau Bac+5 est organisée autour de deux
- 			axes forts :
- 			<ul>
- 				<li>
- 					Le master est structuré sous la forme d'une
- 					<a href="parcours/specialites/SPE_MASTER1.html"> première année
- 						commune (M1)</a>
- 					et dupliquée sur les sites sud et nord, suivie d'une
- 					deuxième année
- 					de spécialisation (M2).
- 				</li>
- 				<li>
- 					La
- 					<strong>deuxième année</strong>
- 					est composée de sept spécialités. Deux à
- 					finalité recherche, et cinq
- 					à finalité professionnelle. Certaines
- 					spécialités sont ensuite
- 					déclinées en plusieurs parcours. Ces
- 					spécialités sont localisées à
- 					Luminy ou à Saint-Jérôme en fonction
- 					des compétences locales.
- 				</li>
-
- 			</ul>
- 		</p>
- 		</div>
-		</xsl:variable>
 	<!-- NOEUD MASTER -->
 	<xsl:template match="master">
 
@@ -89,64 +15,105 @@
 			<html xmlns="http://www.w3.org/1999/xhtml">
 				<head>
 					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-					<link rel="stylesheet" type="text/css" href="../css/master.css" />
+					<link rel="stylesheet" type="text/css" href="../../css/master.css" />
+					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
 					<title>
 						Liste des UEs
 					</title>
 				</head>
 				<body>
-					<div class="header">
-						<img alt="image" src="../css/img/logo.png"></img>
-						<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
+
+					<div class="container">
+						<div id="row" class="row">
+							<div class="col-md-3">
+								<img class="img_h1" src="../../css/img/logo.png" alt="logo" />
+							</div>
+							<div class="col-md-9">
+								<h1 class="img_h1">MASTER INFORMATIQUE DE MARSELLE</h1>
+							</div>
+						</div>
 					</div>
-					<div class="navigation">
-						<xsl:call-template name="menu">
-							<!-- Nous sommes a la racine -->
-							<xsl:with-param name="link" />
-						</xsl:call-template>
-					</div>
-					<center>
+
+					<center class="text-center">
 						<h1>Les unités d'enseignements</h1>
 					</center>
-					<div class="body">
-						<div class="titre">
-							Les unites triées par code
-						</div>
-						<div class="contenu">
-							<xsl:for-each select="//unite">
-								<a href="../enseignements/{@id}.html">
-									[
-									<xsl:value-of select="@id" />
-									]
-								</a>
-							</xsl:for-each>
-						</div>
-						<div class="titre">
-							Les UEs du master
-						</div>
-						<div class="contenu">
-							<table>
-								<tr>
-									<td>Code</td>
-									<td>Nom</td>
-								</tr>
-								<xsl:for-each select="//unite">
-									<tr>
-										<td>
+
+					<div class="container">
+						<div class="row">
+							<div id="navig" class="col-md-3">
+								<xsl:call-template name="menu">
+									<!-- Nous sommes a la racine -->
+									<xsl:with-param name="link" />
+								</xsl:call-template>
+							</div>
+
+
+
+							<div class="col-md-9">
+								<div class="body">
+									<div class="titre">
+										Les unites triées par code
+									</div>
+									<div class="contenu">
+										<xsl:for-each select="//unite">
 											<a href="../enseignements/{@id}.html">
+												[
 												<xsl:value-of select="@id" />
+												]
 											</a>
-										</td>
-										<td>
-											<a>
-												<xsl:value-of select="nom" />
-											</a>
-										</td>
-									</tr>
-								</xsl:for-each>
-							</table>
+										</xsl:for-each>
+									</div>
+									<div class="titre">
+										Les UEs du master
+									</div>
+									<div class="contenu">
+										<table>
+											<tr>
+												<td>Code</td>
+												<td>Nom</td>
+											</tr>
+											<xsl:for-each select="//unite">
+												<tr>
+													<td>
+														<a href="../enseignements/{@id}.html">
+															<xsl:value-of select="@id" />
+														</a>
+													</td>
+													<td>
+														<a>
+															<xsl:value-of select="nom" />
+														</a>
+													</td>
+												</tr>
+											</xsl:for-each>
+										</table>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
+
+					<div class="text-center">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-1">
+									<img src="../../css/img/facebook.png" alt="logo" />
+								</div>
+								<div class="col-md-1">
+									<img src="../../css/img/linkedin.png" alt="logo" />
+								</div>
+								<div class="col-md-1">
+									<img src="../../css/img/twitter.png" alt="logo" />
+								</div>
+								<div class="col-md-9">
+									<h5>© 2018 Aix Marseille Université - Tous droits réservés
+									</h5>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
 				</body>
 			</html>
 		</xsl:result-document>
@@ -158,56 +125,97 @@
 			<html xmlns="http://www.w3.org/1999/xhtml">
 				<head>
 					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-					<link rel="stylesheet" type="text/css" href="../css/master.css" />
+					<link rel="stylesheet" type="text/css" href="../../css/master.css" />
+					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
 					<title>Liste des Intervenants						</title>
 				</head>
 				<body>
-					<div class="header">
-						<img alt="logo" src="../css/img/logo.png"></img>
-						<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
-					</div>
-					<div class="navigation">
-						<xsl:call-template name="menu">
-							<xsl:with-param name="link" />
-						</xsl:call-template>
-					</div>
-					<center>
-						<h1>Les intervenants du Master Informatique</h1>
-					</center>
-					<div class="body">
-						<div class="titre">Une première liste</div>
-						<div class="contenu">
-							<p>L'équipe pedagogique est en cours de constitution. Cette liste
-								sera completée en avril 2018.
-							</p>
-							<table>
-								<tr>
-									<td>Nom</td>
-									<td>Téléphon</td>
-									<td>Courriel</td>
-									<td>Web</td>
-								</tr>
-								<xsl:for-each select="//intervenant">
-									<tr>
-										<td>
-											<a href="../intervenants/{@id}.html">
-												<xsl:value-of select="nom" />
-											</a>
-										</td>
-										<td>
-											<xsl:value-of select="telephone" />
-										</td>
-										<td>
-											<xsl:value-of select="mail" />
-										</td>
-										<td>
-											<xsl:value-of select="siteWeb" />
-										</td>
-									</tr>
-								</xsl:for-each>
-							</table>
+					<div class="container">
+						<div id="row" class="row">
+							<div class="col-md-3">
+								<img class="img_h1" src="../../css/img/logo.png" alt="logo" />
+							</div>
+							<div class="col-md-9">
+								<h1 class="img_h1">MASTER INFORMATIQUE DE MARSELLE</h1>
+							</div>
 						</div>
 					</div>
+
+					<center class="text-center">
+						<h1>Les intervenants du Master Informatique</h1>
+					</center>
+
+					<div class="container">
+						<div class="row">
+							<div id="navig" class="col-md-3">
+								<xsl:call-template name="menu">
+									<xsl:with-param name="link" />
+								</xsl:call-template>
+							</div>
+
+
+
+							<div class="col-md-9">
+								<div class="body">
+									<div class="titre">Une première liste</div>
+									<div class="contenu">
+										<p>L'équipe pedagogique est en cours de constitution. Cette
+											liste
+											sera completée en avril 2018.
+										</p>
+										<table>
+											<tr>
+												<td>Nom</td>
+												<td>Téléphon</td>
+												<td>Courriel</td>
+												<td>Web</td>
+											</tr>
+											<xsl:for-each select="//intervenant">
+												<tr>
+													<td>
+														<a href="../intervenants/{@id}.html">
+															<xsl:value-of select="nom" />
+														</a>
+													</td>
+													<td>
+														<xsl:value-of select="telephone" />
+													</td>
+													<td>
+														<xsl:value-of select="mail" />
+													</td>
+													<td>
+														<xsl:value-of select="siteWeb" />
+													</td>
+												</tr>
+											</xsl:for-each>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-1">
+									<img src="../../css/img/facebook.png" alt="logo" />
+								</div>
+								<div class="col-md-1">
+									<img src="../../css/img/linkedin.png" alt="logo" />
+								</div>
+								<div class="col-md-1">
+									<img src="../../css/img/twitter.png" alt="logo" />
+								</div>
+								<div class="col-md-9">
+									<h5>© 2018 Aix Marseille Université - Tous droits réservés
+									</h5>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
 				</body>
 			</html>
 		</xsl:result-document>
@@ -221,17 +229,48 @@
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
 						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-						<link rel="stylesheet" type="text/css" href="../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
 						<title>
 							<xsl:value-of select="nom" />
 						</title>
 					</head>
 					<body>
-						<div class="header">
-							<img alt="logo" src="../css/img/logo.png"></img>
-							<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
+
+						<div class="container">
+							<div id="row" class="row">
+								<div class="col-md-3">
+									<img class="img_h1" src="../../css/img/logo.png" alt="logo" />
+								</div>
+								<div class="col-md-9">
+									<h1 class="img_h1">MASTER INFORMATIQUE DE MARSELLE</h1>
+								</div>
+							</div>
 						</div>
+
 						<xsl:apply-templates select="." />
+
+						<div class="text-center">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-1">
+										<img src="../../css/img/facebook.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../css/img/linkedin.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../css/img/twitter.png" alt="logo" />
+									</div>
+									<div class="col-md-9">
+										<h5>© 2018 Aix Marseille Université - Tous droits réservés
+										</h5>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
 					</body>
 				</html>
 			</xsl:result-document>
@@ -244,26 +283,62 @@
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
 						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-						<link rel="stylesheet" type="text/css" href="../../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css" />
 						<title>
 							<xsl:value-of select="nom" />
 						</title>
 					</head>
 					<body>
-						<div class="header">
-							<img alt="image" src="../../css/img/logo.png"></img>
-							<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
+						<div class="container">
+							<div id="row" class="row">
+								<div class="col-md-3">
+									<img class="img_h1" src="../../../css/img/logo.png" alt="logo" />
+								</div>
+								<div class="col-md-9">
+									<h1 class="img_h1">MASTER INFORMATIQUE DE MARSELLE</h1>
+								</div>
+							</div>
 						</div>
-						<div class="navigation">
-							<xsl:call-template name="menu">
-								<xsl:with-param name="link">
-									../
-								</xsl:with-param>
-							</xsl:call-template>
+
+						<div class="container">
+							<div class="row">
+								<div id="navig" class="col-md-3">
+									<xsl:call-template name="menu">
+										<xsl:with-param name="link">
+											../
+										</xsl:with-param>
+									</xsl:call-template>
+								</div>
+								<div class="col-md-9">
+									<div class="body">
+										<xsl:apply-templates select="." />
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="body">
-							<xsl:apply-templates select="." />
+
+						<div class="text-center">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-1">
+										<img src="../../../css/img/facebook.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../../css/img/linkedin.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../../css/img/twitter.png" alt="logo" />
+									</div>
+									<div class="col-md-9">
+										<h5>© 2018 Aix Marseille Université - Tous droits réservés
+										</h5>
+									</div>
+								</div>
+							</div>
+
 						</div>
+
 					</body>
 				</html>
 			</xsl:result-document>
@@ -275,18 +350,49 @@
 				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
-						<link rel="stylesheet" type="text/css" href="../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
 						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 						<title>
 							<xsl:value-of select="nom" />
 						</title>
 					</head>
 					<body>
-						<div class="header">
-							<img alt="image" src="../css/img/logo.png"></img>
-							<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
+					
+						<div class="container">
+							<div id="row" class="row">
+								<div class="col-md-3">
+									<img class="img_h1" src="../../css/img/logo.png" alt="logo" />
+								</div>
+								<div class="col-md-9">
+									<h1 class="img_h1">MASTER INFORMATIQUE DE MARSELLE</h1>
+								</div>
+							</div>
 						</div>
+
 						<xsl:apply-templates select="." />
+
+						<div class="text-center">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-1">
+										<img src="../../css/img/facebook.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../css/img/linkedin.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../css/img/twitter.png" alt="logo" />
+									</div>
+									<div class="col-md-9">
+										<h5>© 2018 Aix Marseille Université - Tous droits réservés
+										</h5>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
 					</body>
 				</html>
 			</xsl:result-document>
@@ -298,57 +404,92 @@
 				<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
-						<link rel="stylesheet" type="text/css" href="../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../css/master.css" />
+						<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
 						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 						<title>
 							<xsl:value-of select="nom" />
 						</title>
 					</head>
 					<body>
-						<div class="header">
-							<img alt="image" src="../css/img/logo.png"></img>
-							<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
-						</div>
-						<div class="navigation">
-							<xsl:call-template name="menu">
-								<xsl:with-param name="link" />
-							</xsl:call-template>
-						</div>
-						<div class="body">
-							<div class="titre">
-								<xsl:value-of select="nom" />
-							</div>
-							<div class="contenu">
-								Responsables :
-								<xsl:for-each select="ref-specialite">
-									<xsl:variable name="ref" select="@ref" />
-									<ul>
-										<xsl:for-each select="//specialite">
-											<!--On peut aussi mettre la condition en XPATH dans le select -->
-											<xsl:if test="$ref = @id">
-												<xsl:apply-templates select="responsable/ref-intervenant" />
-											</xsl:if>
-										</xsl:for-each>
-									</ul>
-								</xsl:for-each>
-								<xsl:value-of select="description" />
-								<br />
-								<xsl:for-each select="ref-specialite">
-									<xsl:variable name="ref" select="@ref" />
-									<ul>
-										<xsl:for-each select="//specialite">
-											<xsl:if test="$ref = @id">
-												<li>
-													<a href="specialites/{$ref}.html">
-														<xsl:value-of select="nom" />
-													</a>
-												</li>
-											</xsl:if>
-										</xsl:for-each>
-									</ul>
-								</xsl:for-each>
+
+						<div class="container">
+							<div id="row" class="row">
+								<div class="col-md-3">
+									<img class="img_h1" src="../../css/img/logo.png" alt="logo" />
+								</div>
+								<div class="col-md-9">
+									<h1 class="img_h1">MASTER INFORMATIQUE DE MARSELLE</h1>
+								</div>
 							</div>
 						</div>
+						<div class="container">
+							<div class="row">
+								<div id="navig" class="col-md-3">
+									<xsl:call-template name="menu">
+										<xsl:with-param name="link" />
+									</xsl:call-template>
+								</div>
+								<div class="col-md-9">
+									<div class="body">
+										<div class="titre">
+											<xsl:value-of select="nom" />
+										</div>
+										<div class="contenu">
+											Responsables :
+											<xsl:for-each select="ref-specialite">
+												<xsl:variable name="ref" select="@ref" />
+												<ul>
+													<xsl:for-each select="//specialite">
+														<!--On peut aussi mettre la condition en XPATH dans le select -->
+														<xsl:if test="$ref = @id">
+															<xsl:apply-templates select="responsable/ref-intervenant" />
+														</xsl:if>
+													</xsl:for-each>
+												</ul>
+											</xsl:for-each>
+											<xsl:value-of select="description" />
+											<br />
+											<xsl:for-each select="ref-specialite">
+												<xsl:variable name="ref" select="@ref" />
+												<ul>
+													<xsl:for-each select="//specialite">
+														<xsl:if test="$ref = @id">
+															<li>
+																<a href="specialites/{$ref}.html">
+																	<xsl:value-of select="nom" />
+																</a>
+															</li>
+														</xsl:if>
+													</xsl:for-each>
+												</ul>
+											</xsl:for-each>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="text-center">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-1">
+										<img src="../../css/img/facebook.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../css/img/linkedin.png" alt="logo" />
+									</div>
+									<div class="col-md-1">
+										<img src="../../css/img/twitter.png" alt="logo" />
+									</div>
+									<div class="col-md-9">
+										<h5>© 2018 Aix Marseille Université - Tous droits réservés
+										</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</body>
 				</html>
 			</xsl:result-document>
@@ -358,24 +499,60 @@
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 		<html>
 			<head>
-				<link rel="stylesheet" type="text/css" href="css/master.css" />
+				<link rel="stylesheet" type="text/css" href="../css/master.css" />
+				<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 				<title>Master Informatique de Marseille</title>
 			</head>
 			<body>
-				<div class="header">
-					<img src="css/img/logo.png" alt="logo"></img>
-					<h1>MASTER INFORMATIQUE DE MARSELLE</h1>
+				<div class="container">
+					<div id="row" class="row">
+						<div class="col-md-3">
+							<img class="img_h1" src="../css/img/logo.png" alt="logo" />
+						</div>
+						<div class="col-md-9">
+							<h1 class="img_h1">MASTER INFORMATIQUE DE MARSELLE</h1>
+						</div>
+					</div>
 				</div>
-				<div class="navigation">
-					<xsl:call-template name="menu">
-						<xsl:with-param name="link">
-							parcours/
-						</xsl:with-param>
-					</xsl:call-template>
+				<div class="container">
+					<div class="row">
+						<div id="navig" class="col-md-3">
+							<xsl:call-template name="menu">
+								<xsl:with-param name="link">
+									parcours/
+								</xsl:with-param>
+							</xsl:call-template>
+						</div>
+						<div class="col-md-9">
+							<div class="body">
+								<xsl:for-each select="description/p">
+									<xsl:value-of select="." />
+									<br />
+									<br />
+								</xsl:for-each>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="body">
-					<xsl:copy-of select="$description" />
+				<div class="text-center">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-1">
+								<img src="../css/img/facebook.png" alt="logo" />
+							</div>
+							<div class="col-md-1">
+								<img src="../css/img/linkedin.png" alt="logo" />
+							</div>
+							<div class="col-md-1">
+								<img src="../css/img/twitter.png" alt="logo" />
+							</div>
+							<div class="col-md-9">
+								<h5>© 2018 Aix Marseille Université - Tous droits réservés  </h5>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</body>
 		</html>
@@ -386,16 +563,14 @@
 	<!-- Generation du menu -->
 	<xsl:template name="menu">
 		<xsl:param name="link" />
-		<ul>
-			<li>
-				<strong>PARCOURS</strong>
-			</li>
+
+		<ul class="list-group">
 
 			<xsl:for-each select="//parcour">
 				<!-- Plus d'une specialite -->
 
 				<xsl:if test="count(ref-specialite) > 1 ">
-					<li>
+					<li class="list-group-item">
 						<a href="{$link}{@id}.html">
 							<strong>
 								<xsl:value-of select="nom" />
@@ -415,7 +590,7 @@
 				</xsl:if>
 				<!-- Une seule specialite -->
 				<xsl:if test="count(ref-specialite) = 1 ">
-					<li>
+					<li class="list-group-item">
 						<a href="{$link}specialites/{ref-specialite/@ref}.html">
 							<strong>
 								<xsl:value-of select="nom" />
@@ -424,14 +599,14 @@
 					</li>
 				</xsl:if>
 			</xsl:for-each>
-			<li>
+			<li class="list-group-item">
 				<a href="{$link}unites.html">
 					<strong>
 						Les unités
 					</strong>
 				</a>
 			</li>
-			<li>
+			<li class="list-group-item">
 				<a href="{$link}intervenants.html">
 					<strong>
 						Les intervenants
@@ -525,15 +700,15 @@
 						<li>
 							Adresse électronique :
 							<a href="#">
-							<xsl:value-of select="mail" />
+								<xsl:value-of select="mail" />
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 				<br />
 				<center>
-					<a href="#" onclick="javascript:history.back();">Revenir a la liste</a>
+					<a class="btn btn-default" href="#" onclick="javascript:history.back();">Revenir a la liste</a>
 				</center>
 			</div>
 		</div>
@@ -639,6 +814,7 @@
 		<div class="contenu">
 			<a href="../../intervenants/{$ref}.html">
 				<xsl:value-of select="//intervenant[@id = $ref]/nom" />
+				<br />
 			</a>
 		</div>
 		<xsl:if test="lieu != ''">

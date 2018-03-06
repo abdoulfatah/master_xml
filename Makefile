@@ -5,25 +5,17 @@ EXEC=decoupe
 
 dtd:
 	xmllint --valid --noout master.xml
-	@echo "-----[ DTD OK ]-----"
-NoEnt: 
-	xmllint --valid --noent master.xml > masterNoEntite.xml
-	@echo "-----[ XML doc noENTITY OK ]-----"
 xsd:
 	xmllint --valid --noent --noout --schema master.xsd master.xml
-	@echo "-----[ XSD OK ]-----"
 web:
 	mkdir -p www
 	java -jar saxon9/saxon9he.jar -xsl:xsl/master.xsl master.xml -o:www/index.html
-	@echo "-----[ Génération site WEB OK ]-----"
 tidyXHTML:
 	cd tidy && make all
-	@echo "-----[ TIDY OK ]-----"
 xqReq:	
 	java -cp saxon9/saxon9he.jar net.sf.saxon.Query "-q:xq.txt" > www/xq.html
-	@echo "-----[ XQ OK ]-----"
 javaNomUE:
 	cd java && make all
-	@echo "-----[ JAVA OK ]-----"
-
-all:  dtd xsd web tidyXHTML xqReq  javaNomUE
+clean:
+	rm -R  www
+all:  clean dtd xsd web tidyXHTML xqReq  javaNomUE
