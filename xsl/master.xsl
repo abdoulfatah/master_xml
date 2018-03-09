@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-
-
 <xsl:stylesheet version="2.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
 
 	<!-- NOEUD MASTER -->
 	<xsl:template match="master">
@@ -22,7 +19,6 @@
 					</title>
 				</head>
 				<body>
-
 					<div class="container">
 						<div id="row" class="row">
 							<div class="col-md-3">
@@ -33,11 +29,9 @@
 							</div>
 						</div>
 					</div>
-
 					<center class="text-center">
 						<h1>Les unités d'enseignements</h1>
 					</center>
-
 					<div class="container">
 						<div class="row">
 							<div id="navig" class="col-md-3">
@@ -46,9 +40,6 @@
 									<xsl:with-param name="link" />
 								</xsl:call-template>
 							</div>
-
-
-
 							<div class="col-md-9">
 								<div class="body">
 									<div class="titre">
@@ -92,7 +83,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="text-center">
 						<div class="container">
 							<div class="row">
@@ -111,13 +101,10 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
-
 				</body>
 			</html>
 		</xsl:result-document>
-
 
 		<!-- Description des intervenants -->
 		<xsl:result-document href="parcours/intervenants.html">
@@ -140,11 +127,9 @@
 							</div>
 						</div>
 					</div>
-
 					<center class="text-center">
 						<h1>Les intervenants du Master Informatique</h1>
 					</center>
-
 					<div class="container">
 						<div class="row">
 							<div id="navig" class="col-md-3">
@@ -152,9 +137,6 @@
 									<xsl:with-param name="link" />
 								</xsl:call-template>
 							</div>
-
-
-
 							<div class="col-md-9">
 								<div class="body">
 									<div class="titre">Une première liste</div>
@@ -194,7 +176,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="text-center">
 						<div class="container">
 							<div class="row">
@@ -213,14 +194,10 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
-
 				</body>
 			</html>
 		</xsl:result-document>
-
-
 
 		<!-- Production une page XHTML par intervenant -->
 		<xsl:for-each select="//intervenant">
@@ -236,7 +213,6 @@
 						</title>
 					</head>
 					<body>
-
 						<div class="container">
 							<div id="row" class="row">
 								<div class="col-md-3">
@@ -247,9 +223,7 @@
 								</div>
 							</div>
 						</div>
-
 						<xsl:apply-templates select="." />
-
 						<div class="text-center">
 							<div class="container">
 								<div class="row">
@@ -268,9 +242,7 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
-
 					</body>
 				</html>
 			</xsl:result-document>
@@ -300,7 +272,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="container">
 							<div class="row">
 								<div id="navig" class="col-md-3">
@@ -317,7 +288,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="text-center">
 							<div class="container">
 								<div class="row">
@@ -336,9 +306,7 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
-
 					</body>
 				</html>
 			</xsl:result-document>
@@ -358,7 +326,6 @@
 						</title>
 					</head>
 					<body>
-					
 						<div class="container">
 							<div id="row" class="row">
 								<div class="col-md-3">
@@ -369,9 +336,7 @@
 								</div>
 							</div>
 						</div>
-
 						<xsl:apply-templates select="." />
-
 						<div class="text-center">
 							<div class="container">
 								<div class="row">
@@ -390,14 +355,11 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
-
 					</body>
 				</html>
 			</xsl:result-document>
 		</xsl:for-each>
-
 		<!-- Génération d'une page XHTML par parcour -->
 		<xsl:for-each select="//parcour">
 			<xsl:result-document href="parcours/{@id}.html">
@@ -412,7 +374,6 @@
 						</title>
 					</head>
 					<body>
-
 						<div class="container">
 							<div id="row" class="row">
 								<div class="col-md-3">
@@ -466,7 +427,6 @@
 											</xsl:for-each>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -489,7 +449,6 @@
 								</div>
 							</div>
 						</div>
-
 					</body>
 				</html>
 			</xsl:result-document>
@@ -552,7 +511,6 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</body>
 		</html>
@@ -563,12 +521,9 @@
 	<!-- Generation du menu -->
 	<xsl:template name="menu">
 		<xsl:param name="link" />
-
 		<ul class="list-group">
-
 			<xsl:for-each select="//parcour">
 				<!-- Plus d'une specialite -->
-
 				<xsl:if test="count(ref-specialite) > 1 ">
 					<li class="list-group-item">
 						<a href="{$link}{@id}.html">
@@ -677,8 +632,6 @@
 	<!-- NOEUD INTERVENANT -->
 	<xsl:template match="intervenant">
 		<div id="{@id}">
-
-
 			<div class="body">
 				<div class="titre">
 					<xsl:value-of select="nom" />
@@ -699,7 +652,7 @@
 						</li>
 						<li>
 							Adresse électronique :
-							<a href="#">
+							<a href="mailto:">
 								<xsl:value-of select="mail" />
 							</a>
 						</li>
@@ -747,9 +700,7 @@
 								<xsl:apply-templates select="professeurs/ref-intervenant  " />
 							</ul>
 						</li>
-
 					</ul>
-
 				</div>
 				<br />
 				<center>
@@ -758,7 +709,6 @@
 			</div>
 		</div>
 	</xsl:template>
-
 
 	<!-- Semestre -->
 	<xsl:template name="genererSemestre">
@@ -910,4 +860,19 @@
 		</div>
 	</xsl:template>
 
+	<!-- un regex Remplacer automatiquement toutes les adresses « http:// » 
+		par des liens cliquables, -->
+	<xsl:template name="hyperlink">
+		<xsl:param name="string" select="string(.)" />
+		<xsl:analyze-string select="$string" regex="http://[^ ]+">
+			<xsl:matching-substring>
+				<a href="{.}">
+					<xsl:value-of select="." />
+				</a>
+			</xsl:matching-substring>
+			<xsl:non-matching-substring>
+				<xsl:text>ERR: url non cliquable </xsl:text>
+			</xsl:non-matching-substring>
+		</xsl:analyze-string>
+	</xsl:template>
 </xsl:stylesheet>

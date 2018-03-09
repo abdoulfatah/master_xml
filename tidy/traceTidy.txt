@@ -56,8 +56,6 @@ intervenants</strong></a></li>
 <ul>
 <li xmlns=""><a href="../intervenants/II1000.html">Thierry
 ARTIeRES</a></li>
-<li xmlns=""><a href="../intervenants/IN4595.html">Pierre-Alain
-REYNIER</a></li>
 </ul>
 <br />
 <ul>
@@ -850,8 +848,7 @@ Integration de systemes logiciels (ISL)</a></li>
 <div xmlns="" class="contenu">Informatique fondamentale (IF)</div>
 <div xmlns="" class="titre">Responsable</div>
 <div xmlns="" class="contenu"><a href=
-"../../intervenants/II1000%20IN4595.html">Pierre-Alain REYNIER
-Thierry ARTIeRES<br /></a></div>
+"../../intervenants/II1000.html">Thierry ARTIeRES<br /></a></div>
 <div xmlns="" class="titre">Lieu d'enseignement</div>
 <div xmlns="" class="contenu">Campus Luminy</div>
 <div xmlns="" class="titre">Competences a acquerir</div>
@@ -1936,7 +1933,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Jerome</li>
 <li>Téléphone :</li>
 <li>Adresse électronique : <a href=
-"#">luigi.santocanale@lif.univ-mrs.fr</a></li>
+"mailto:">luigi.santocanale@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -1994,7 +1991,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 0491056077</li>
 <li>Adresse électronique : <a href=
-"#">isabel.demongodin@univ-amu.fr</a></li>
+"mailto:">isabel.demongodin@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2052,7 +2049,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 04 96</li>
 <li>Adresse électronique : <a href=
-"#">frederic.olive@univ-amu.fr</a></li>
+"mailto:">frederic.olive@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2110,7 +2107,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Jerome</li>
 <li>Téléphone : 04 91 82 95 27</li>
 <li>Adresse électronique : <a href=
-"#">philippe.jegou@lif.univ-mrs.fr</a></li>
+"mailto:">philippe.jegou@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2168,7 +2165,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 55</li>
 <li>Adresse électronique : <a href=
-"#">frederic.bechet@univ-amu.fr</a></li>
+"mailto:">frederic.bechet@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2226,7 +2223,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 74</li>
 <li>Adresse électronique : <a href=
-"#">line.jakubiec@univ-amu.fr</a></li>
+"mailto:">line.jakubiec@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2284,7 +2281,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy</li>
 <li>Téléphone :</li>
 <li>Adresse électronique : <a href=
-"#">magali.contensin@lif.univ-mrs.fr</a></li>
+"mailto:">magali.contensin@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2342,7 +2339,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 62</li>
 <li>Adresse électronique : <a href=
-"#">nadia.creignou@univ-amu.fr</a></li>
+"mailto:">nadia.creignou@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2400,7 +2397,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 77</li>
 <li>Adresse électronique : <a href=
-"#">arnaud.labourel@univ-amu.fr</a></li>
+"mailto:">arnaud.labourel@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2458,7 +2455,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 06 84</li>
 <li>Adresse électronique : <a href=
-"#">yann.vaxes@univ-amu.fr</a></li>
+"mailto:">yann.vaxes@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2516,7 +2513,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy</li>
 <li>Téléphone : 0413551311</li>
 <li>Adresse électronique : <a href=
-"#">françois.denis@lif.univ-mrs.fr</a></li>
+"mailto:">françois.denis@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2574,7 +2571,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 04 95</li>
 <li>Adresse électronique : <a href=
-"#">noel.noveli@univ-amu.fr</a></li>
+"mailto:">noel.noveli@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2632,7 +2629,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy</li>
 <li>Téléphone :</li>
 <li>Adresse électronique : <a href=
-"#">vincent.rish@lif.univ-mrs.fr</a></li>
+"mailto:">vincent.rish@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2690,7 +2687,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy</li>
 <li>Téléphone : 04 91 82 94 92</li>
 <li>Adresse électronique : <a href=
-"#">peter.niebert@lif.univ-mrs.fr</a></li>
+"mailto:">peter.niebert@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2748,7 +2745,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 10 46</li>
 <li>Adresse électronique : <a href=
-"#">nicolas.olivetti@univ-amu.fr</a></li>
+"mailto:">nicolas.olivetti@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2806,7 +2803,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 70</li>
 <li>Adresse électronique : <a href=
-"#">emmanuel.godard@univ-amu.fr</a></li>
+"mailto:">emmanuel.godard@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2864,7 +2861,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 65</li>
 <li>Adresse électronique : <a href=
-"#">bertrand.estellon@univ-amu.fr</a></li>
+"mailto:">bertrand.estellon@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2922,7 +2919,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 04 90</li>
 <li>Adresse électronique : <a href=
-"#">remi.morin@univ-amu.fr</a></li>
+"mailto:">remi.morin@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -2980,7 +2977,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 0491178431</li>
 <li>Adresse électronique : <a href=
-"#">Claude.lai@univ-amu.fr</a></li>
+"mailto:">Claude.lai@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3038,7 +3035,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 67</li>
 <li>Adresse électronique : <a href=
-"#">benoit.favre@univ-amu.fr</a></li>
+"mailto:">benoit.favre@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3096,7 +3093,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy</li>
 <li>Téléphone : 04 91 82 94 82</li>
 <li>Adresse électronique : <a href=
-"#">kevin.perrot@lif.univ-mrs.fr</a></li>
+"mailto:">kevin.perrot@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3154,7 +3151,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 04 88</li>
 <li>Adresse électronique : <a href=
-"#">jean-luc.massat@univ-amu.fr</a></li>
+"mailto:">jean-luc.massat@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3212,7 +3209,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 06 73</li>
 <li>Adresse électronique : <a href=
-"#">pierre-alain.reynier@univ-amu.fr</a></li>
+"mailto:">pierre-alain.reynier@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3270,7 +3267,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 04 87</li>
 <li>Adresse électronique : <a href=
-"#">denis.lugiez@univ-amu.fr</a></li>
+"mailto:">denis.lugiez@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3327,7 +3324,7 @@ conseillons de lire cette petite introduction.<br>
 <li>Identifiant : IN17708</li>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone :</li>
-<li>Adresse électronique : <a href="#"></a></li>
+<li>Adresse électronique : <a href="mailto:"></a></li>
 </ul>
 </div>
 <br />
@@ -3385,7 +3382,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 06 74</li>
 <li>Adresse électronique : <a href=
-"#">sylvie.risch@univ-amu.fr</a></li>
+"mailto:">sylvie.risch@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3443,7 +3440,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Sciences</li>
 <li>Téléphone : 0413551364</li>
 <li>Adresse électronique : <a href=
-"#">roland.agopian@univ-amu.fr</a></li>
+"mailto:">roland.agopian@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3501,7 +3498,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : ecole Centrale Marseille</li>
 <li>Téléphone :</li>
 <li>Adresse électronique : <a href=
-"#">Thierry.artieres@lif.univ-mrs.fr</a></li>
+"mailto:">Thierry.artieres@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3559,7 +3556,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone :</li>
 <li>Adresse électronique : <a href=
-"#">lydie.rene@univ-amu.fr</a></li>
+"mailto:">lydie.rene@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3617,7 +3614,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 04 86 09 04 56</li>
 <li>Adresse électronique : <a href=
-"#">clara.bertolissi@univ-amu.fr</a></li>
+"mailto:">clara.bertolissi@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3675,7 +3672,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : 04 86 09 06 76</li>
 <li>Adresse électronique : <a href=
-"#">claude.sabatier@univ-amu.fr</a></li>
+"mailto:">claude.sabatier@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3733,7 +3730,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy</li>
 <li>Téléphone :</li>
 <li>Adresse électronique : <a href=
-"#">ann.coady@lif.univ-mrs.fr</a></li>
+"mailto:">ann.coady@lif.univ-mrs.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3791,7 +3788,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 0491933008</li>
 <li>Adresse électronique : <a href=
-"#">martine.broche@univ-amu.fr</a></li>
+"mailto:">martine.broche@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3849,7 +3846,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 0491056053</li>
 <li>Adresse électronique : <a href=
-"#">omar.boucelma@univ-amu.fr</a></li>
+"mailto:">omar.boucelma@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3907,7 +3904,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : UFR Science</li>
 <li>Téléphone : 0491288321</li>
 <li>Adresse électronique : <a href=
-"#">djamal.habet@univ-amu.fr</a></li>
+"mailto:">djamal.habet@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />
@@ -3965,7 +3962,7 @@ conseillons de lire cette petite introduction.<br>
 <li>lieu d'Etablissement : Campus Luminy, St Charles</li>
 <li>Téléphone : +33 4 91 05 60 57</li>
 <li>Adresse électronique : <a href=
-"#">sana.sellami@univ-amu.fr</a></li>
+"mailto:">sana.sellami@univ-amu.fr</a></li>
 </ul>
 </div>
 <br />

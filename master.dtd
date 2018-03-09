@@ -1,7 +1,7 @@
 <!--ENTITY-->
-<!ENTITY  site1  "Campus Luminy" 		        >
-<!ENTITY  site2  "St Charles" 			        >
-<!ENTITY  site3  "St Jerome" 			        >
+<!ENTITY  site1  "Campus Luminy" 		                     >
+<!ENTITY  site2  "St Charles" 			                     >
+<!ENTITY  site3  "St Jerome" 			                     >
 <!ENTITY  adresseSitePerso      ".perso.luminy.univ-amu.fr/" >
 <!ENTITY  http					"http://www."				 >
 <!ENTITY  dom.amu				"univ-amu.fr"				 >
@@ -9,7 +9,7 @@
 <!ENTITY  dom.luminy  			"univ-mrs.fr" 				 >
 <!ENTITY  dom.dil     			"dil.&dom.luminy;" 			 >
 <!ENTITY  obli     				"Obligatoire" 			     >
-<!ENTITY  option     				"Optionnel" 			     >
+<!ENTITY  option     				"Optionnel" 			 >
 <!ENTITY  cred3     			"3" 			     		 >
 <!ENTITY  cred6     			"6" 			     		 >
 <!ENTITY  noResume				"Nous sommes désolé, mais nous n'avons pas encore de résumé.">
@@ -58,6 +58,7 @@
 <!ELEMENT ref-specialite	   			(#PCDATA)>
 <!ELEMENT connaissances      			(#PCDATA | p)*>
 <!ELEMENT competences        			(#PCDATA | p)*>
+
 <!--ATTRIBUTS-->
 <!ATTLIST unite  id ID  #REQUIRED>
 <!ATTLIST intervenant  id ID  #REQUIRED>
@@ -72,8 +73,9 @@
 <!ATTLIST ref-bloc  ref IDREF  #REQUIRED>
 <!ATTLIST bloc  etat  (Obligatoire|Optionnel)  #REQUIRED>
 <!ATTLIST bloc  titre CDATA   #REQUIRED>
+
 <!--HTML BALISE -->
-<!ELEMENT p							(#PCDATA | em | ul | strong | table | p)*  >				
+<!ELEMENT p							(#PCDATA | em | ul | strong | table | p)*>				
 <!ELEMENT strong					(#PCDATA|p)*>				
 <!ELEMENT em						(#PCDATA)>
 <!ELEMENT ul						(li+ | p)*>

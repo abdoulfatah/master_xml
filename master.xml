@@ -302,7 +302,6 @@
 			</professeurs>
 			<resume>XML, DTD, XSD XPath, XSLT, XQuery.</resume>
 		</unite>
-
 		<unite id="ENSINBU5">
 			<nom>Algorithmique et recherche operationnelle</nom>
 			<identifiant>ENSINBU5</identifiant>
@@ -2008,7 +2007,6 @@
 			<lieu>&site1;</lieu>
 			<responsable>
 				<ref-intervenant ref="II1000"></ref-intervenant>
-				<ref-intervenant ref="IN4595"></ref-intervenant>
 			</responsable>
 			<professeurs>
 				<ref-intervenant ref="II1000"></ref-intervenant>
@@ -2474,8 +2472,8 @@
 			organisations. Notre ambition est de former des etudiants dont les
 			competences sont tout a fait comparables a celles acquises dans les
 			meilleurs ecoles d'ingenieurs.
-
 		</p>
+		
 		<p>
 			Le Master informatique repose sur plus de 25 ans d'experience
 			d'enseignement d'informatique sur l'Universite d'Aix-Marseille
@@ -2484,6 +2482,5 @@
 			suivant le schema Licence/Master/Doctorat, nous vous conseillons de
 			lire cette petite introduction.
 		</p>
-		
 	</description>
 </master>
